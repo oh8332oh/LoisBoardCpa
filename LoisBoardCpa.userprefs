@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\InputInterface.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\InterFace.cs">
     <Files>
       <File FileName="Assets\GoogleVR\Legacy\Scripts\Internal\VRDevices\EditorDevice.cs" Line="25" Column="38" />
-      <File FileName="Assets\InputInterface.cs" Line="28" Column="19" />
+      <File FileName="Assets\_Scripts\InputInterface.cs" Line="5" Column="35" />
+      <File FileName="Assets\InterFace.cs" Line="37" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

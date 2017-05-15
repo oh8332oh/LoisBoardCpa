@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;   
 public class InputInterface : MonoBehaviour {
 	public GameObject interfacePrefab;
 	public GameObject button;
+	private Text inputText;
 	private bool gazedAt;      
 	private bool onetime;
 
 	// Use this for initialization
 	void Start () {
-		
+    		
 	}
 	
 	// Update is called once per frame
@@ -19,9 +21,8 @@ public class InputInterface : MonoBehaviour {
 	  if (gazedAt&&!onetime) {
 	     button = Instantiate (interfacePrefab);
 			onetime = true;
+			inputText = null;
 	  }
-
-
 	}
 	public void PointerEnter()
 	{
