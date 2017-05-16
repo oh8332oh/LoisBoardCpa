@@ -58,6 +58,7 @@ public class CreateChildNode : MonoBehaviour {
 		//CNode.transform.TransformDirection(new Vector3(5,0,-5*Mathf.Tan(Mathf.Deg2Rad * 15f)));
 		//CNode.transform.Translate(new Vector3(3.4f,0,-3.4f*Mathf.Tan(Mathf.Deg2Rad * 15f)),Space.Self);
 		//CNode.transform.Rotate (new Vector3 (0, 30, 0));
+		CNode.transform.Translate(new Vector3(-1.7f,0,0));
 		CNode.transform.RotateAround (Vector3.zero, Vector3.up,30f);
 		CNode.name = "Node" + Loc.x +", "+ Loc.y;
 
