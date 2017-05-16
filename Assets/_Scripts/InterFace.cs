@@ -5,42 +5,49 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;   
 public class InterFace : MonoBehaviour {
 	public GameObject interfacePrefab;
-	public GameObject button;
-	private Text inputText;
+	private GameObject button;
 	private bool gazedAt;      
 	private bool onetime;
+	private Vector3 tempLoc;
+	private Quaternion tempRot;
+	private float Timer;
+	private float gazeTime = 1.0f;
 
 	// Use this for initialization
 	void Start () {
-
+		tempLoc = transform.localPosition;
+		tempRot = transform.localRotation;
+		Timer = 0f;
+		GlobalV.nodeLoc [GlobalV.a, GlobalV.b] = 1;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		if (gazedAt&&!onetime) {
-			button = Instantiate (interfacePrefab);
-			onetime = true;
-			inputText = null;
-		}
+
 		if (gazedAt) {
-			ExecuteEvents.Execute (gameObject, new PointerEventData (EventSystem.current), ExecuteEvents.pointerDownHandler);
+			Timer += Time.deltaTime;
 		}
+		if (Timer>=gazeTime&&gazedAt&&!onetime) {
+			button = Instantiate (interfacePrefab,tempLoc,tempRot);
+			button.transform.parent = gameObject.transform;
+			onetime = true;	
+
+		}
+
 	}
 	public void PointerEnter()
-	{
+	{   
 		gazedAt = true;
+		Debug.Log (GlobalV.nodeLoc [0, 10]);
 	}	
 
 	public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
 	{
+		
 		gazedAt = false;
 		onetime = false;
-		DestroyObject (button);
+		Destroy (button);
+		Timer = 0f;
 	}
-	public void PointerDown() 
-	{
-	}
-
-
 }

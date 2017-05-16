@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class InputInterface : MonoBehaviour {
 	public GameObject interfacePrefab;
 	public GameObject button;
-	private Text inputText;
 	private bool gazedAt;      
 	private bool onetime;
 
@@ -21,7 +20,6 @@ public class InputInterface : MonoBehaviour {
 	  if (gazedAt&&!onetime) {
 	     button = Instantiate (interfacePrefab);
 			onetime = true;
-			inputText = null;
 	  }
 	}
 	public void PointerEnter()
