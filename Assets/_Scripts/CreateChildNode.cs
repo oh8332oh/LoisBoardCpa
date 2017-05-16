@@ -46,13 +46,21 @@ public class CreateChildNode : MonoBehaviour {
 
 	public void CreateChild()
 	{ 
+		/*
 		tempLoc.x = Mathf.Sin(Mathf.Deg2Rad*30f*GlobalV.number)*10f;
 		tempLoc.y = 0;
 		tempLoc.z = Mathf.Cos (Mathf.Deg2Rad*30f * GlobalV.number)*10f;
+		*/
+
+		//tempLoc += new Vector3 (5f, 0f, -5 * Mathf.Tan(Mathf.Deg2Rad * 15f));
+		//*5/Mathf.Cos(Mathf.Deg2Rad*15f)
 		CNode = Instantiate (Node,tempLoc,tempRot);
-		CNode.transform.Rotate (new Vector3 (0, 30*GlobalV.number, 0));
+		//CNode.transform.TransformDirection(new Vector3(5,0,-5*Mathf.Tan(Mathf.Deg2Rad * 15f)));
+		//CNode.transform.Translate(new Vector3(3.4f,0,-3.4f*Mathf.Tan(Mathf.Deg2Rad * 15f)),Space.Self);
+		//CNode.transform.Rotate (new Vector3 (0, 30, 0));
+		CNode.transform.RotateAround (Vector3.zero, Vector3.up,30f);
 		CNode.name = "Node" + Loc.x +", "+ Loc.y;
-		GlobalV.number++;
+
 		Debug.Log (GlobalV.number);
 	}
 

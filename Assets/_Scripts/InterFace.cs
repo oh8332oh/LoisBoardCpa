@@ -32,9 +32,8 @@ public class InterFace : MonoBehaviour {
 			button = Instantiate (interfacePrefab,tempLoc,tempRot);
 			button.transform.parent = gameObject.transform;
 			onetime = true;	
-
 		}
-
+		gameObject.transform.RotateAround (Vector3.zero, Vector3.up, 30f*Time.deltaTime);
 	}
 	public void PointerEnter()
 	{   
