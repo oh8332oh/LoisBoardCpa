@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;   
-public class InterFace : MonoBehaviour {
+public class InterFaceN : MonoBehaviour {
 	public GameObject interfacePrefab;
 	private GameObject button;
 	private bool gazedAt;      
@@ -12,14 +12,12 @@ public class InterFace : MonoBehaviour {
 	private Quaternion tempRot;
 	private float Timer;
 	private float gazeTime = 1.0f;
-	public float nodecount= 0f;
 
 	// Use this for initialization
 	void Start () {
 		tempLoc = transform.localPosition;
 		tempRot = transform.localRotation;
 		Timer = 0f;
-		GlobalV.nodeLoc [GlobalV.a, GlobalV.b] = 1;
 	}
 
 	// Update is called once per frame
@@ -39,13 +37,12 @@ public class InterFace : MonoBehaviour {
 	public void PointerEnter()
 	{   
 		gazedAt = true;
-		GlobalV.a = 0;
-		GlobalV.b = 10;
+		Debug.Log (GlobalV.nodeLoc [0, 10]);
 	}	
 
 	public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
 	{
-		
+
 		gazedAt = false;
 		onetime = false;
 		Destroy (button);

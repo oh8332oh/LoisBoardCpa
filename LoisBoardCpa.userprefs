@@ -1,12 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\CreateChildNode.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AnimatedLineRenderer\Demo\DemoScriptPhasor.cs">
     <Files>
-      <File FileName="Assets\_Scripts\InterFace.cs" Line="29" Column="28" />
+      <File FileName="Assets\_Scripts\CreateChildNode.cs" Line="34" Column="16" />
+      <File FileName="Assets\_Scripts\InterFace.cs" Line="15" Column="8" />
       <File FileName="Assets\_Scripts\InputInterface.cs" Line="1" Column="1" />
       <File FileName="Assets\_Scripts\Node.cs" Line="1" Column="1" />
       <File FileName="Assets\_Scripts\GlobalV.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Scripts\CreateChildNode.cs" Line="58" Column="92" />
+      <File FileName="Assets\_Scripts\drawLine.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\InterFaceN.cs" Line="1" Column="1" />
+      <File FileName="Assets\AnimatedLineRenderer\Demo\DemoScriptPhasor.cs" Line="15" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
