@@ -1,3 +1,7 @@
 Library/
+GoogleVR/
+Plugins/
+Temp/
+
 LoisBoardCpa.sln
 *.csproj
