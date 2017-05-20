@@ -3,5 +3,5 @@ GoogleVR/
 Plugins/
 Temp/
 
-LoisBoardCpa.sln
+*.sln
 *.csproj

@@ -50,15 +50,19 @@ public class CameraRay : MonoBehaviour
 
     //카메라의 위치값을 받아와서 변수에 넣는다.
     //임시. 새로운 값이 있으면 그것으로 바꿀것
-		//z높이가 추가되면
+    //z높이가 추가되면
     Vector3 sourcePoint = Vector3.zero;
-		
+
 
 
     //y축을 중심으로 순차적으로 회전하며 방향을 잡는다.
     //방향을 의미하는 변수를 만든다.
 
-    bool createSwitch = false;
+    bool collideOn = false;
+
+    //충돌에 따라서 분류
+    //충돌하면
+
     RaycastHit hitInfo = new RaycastHit();
 
 
@@ -66,22 +70,26 @@ public class CameraRay : MonoBehaviour
     for (int i = 0; i < 12; i++)
     {
 
-      Quaternion v3Rotation = Quaternion.Euler(0f, 0, 30f * i);  // 회전각
+      Quaternion v3Rotation = Quaternion.Euler(-30f * i, 0, 0);  // 회전각
+
+      //초기 서칭 기준점은 플러스 버튼을 누른 부모의 오른쪽 한칸이어야 한다.
+
+
       Vector3 rayDirection = v3Rotation * startDirection;
 
-			//확인하기 위한 라인 그리기
+      //확인하기 위한 라인 그리기
       float duration = 200.0f;
       Debug.DrawLine(sourcePoint, rayDirection, Color.red, duration);
 
 
-			//중심점과 방향을 지정하여 ray생성
+      //중심점과 방향을 지정하여 ray생성
       Ray ray = new Ray(sourcePoint, rayDirection);
 
       if (Physics.Raycast(ray, out hitInfo, distance))
       {
         print("hit");
 
-        createSwitch = false;
+        collideOn = true;
 
       }
       else
@@ -94,36 +102,66 @@ public class CameraRay : MonoBehaviour
 
 
 
-        createSwitch = true;
+
+        collideOn = false;
 
         // Node = Instantiate(NodePrefab);
 
-				
+
         break;
       }
-			// GameObject hitobj=hitInfo.transform.gameObject;
-			// hitLocation = hitobj.transform.position;
+      // GameObject hitobj=hitInfo.transform.gameObject;
+      // hitLocation = hitobj.transform.position;
 
-			hitLocation = hitInfo.point;
+      hitLocation = hitInfo.point;
       print(hitLocation);
 
 
     }
 
-    return createSwitch;
+    return collideOn;
 
   }//end of SearchPostion
 
-	// public bool SearchRight(){
+  public bool SearchRight(Vector3 startDirection)
+  {
+    Vector3 sourcePoint = Vector3.zero;
 
-	// 	 Ray ray = new Ray(sourcePoint, rayDirection);
+    Quaternion v3Rotation = Quaternion.Euler(0, 30, 0);
+    Vector3 rayDirection = v3Rotation * startDirection;
 
-	// 	if(){
 
-	// 	}
-		
+    //레이를 생성한다.
+    Ray ray = new Ray(sourcePoint, rayDirection);
+    RaycastHit hitInfo = new RaycastHit();
 
-	// }
+
+
+    bool collideOn =false;
+    //레이 충돌에 따라서
+    //충돌하면 
+    if(Physics.Raycast(ray, out hitInfo, distance)){
+
+      collideOn = true;
+      print("hit");
+
+      //충돌이 일어났으면 츙돌 위치 값을 전달한다.
+      CreateChildNode.startDirectionY = hitInfo.point;
+      print(hitInfo.point);
+
+    }else{
+      collideOn = false;
+      print("nohit");
+    }
+
+     //확인하기 위한 라인 그리기
+      float duration = 200.0f;
+      Debug.DrawLine(sourcePoint, rayDirection, Color.green, duration);
+
+    return collideOn;
+
+
+  }
 
 
 
