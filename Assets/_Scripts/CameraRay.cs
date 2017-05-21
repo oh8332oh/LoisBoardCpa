@@ -75,7 +75,10 @@ public class CameraRay : MonoBehaviour
       //초기 서칭 기준점은 플러스 버튼을 누른 부모의 오른쪽 한칸이어야 한다.
 
 
+
       Vector3 rayDirection = v3Rotation * startDirection;
+
+      
 
       //확인하기 위한 라인 그리기
       float duration = 200.0f;
@@ -146,8 +149,11 @@ public class CameraRay : MonoBehaviour
       print("hit");
 
       //충돌이 일어났으면 츙돌 위치 값을 전달한다.
-      CreateChildNode.startDirectionY = hitInfo.point;
-      print(hitInfo.point);
+      // CreateChildNode.startDirectionY = hitInfo.transform.position;
+      
+      // CreateChildNode.startDirectionY = 
+
+      print(hitInfo.transform.position);
 
     }else{
       collideOn = false;

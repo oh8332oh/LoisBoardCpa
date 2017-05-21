@@ -92,7 +92,7 @@ public class CreateChildNode : MonoBehaviour
 			//시작할 방향 변수를 전달해야 한다.
 			
 			
-
+			
 
 
       //써칭한다.
@@ -166,6 +166,8 @@ public class CreateChildNode : MonoBehaviour
     CNode.transform.position = transform.parent.position;
 
     CNode.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
+
+    startDirectionY = CNode.transform.position;
 
 
     CNode.transform.LookAt(Camera.main.transform.position);

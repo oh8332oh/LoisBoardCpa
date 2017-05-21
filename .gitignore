@@ -2,6 +2,9 @@ Library/
 GoogleVR/
 Plugins/
 Temp/
+Builds/
+
+
 
 *.sln
 *.csproj
