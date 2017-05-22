@@ -5,11 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;   
 
 public class CreateChildNode : MonoBehaviour {
-
-	public Vector3 arrowInput1;
-	public Vector3 arrowInput2;
 	public GameObject Node;
 	public GameObject CNode;
+	public GameObject Line;
 	private Vector3 tempLoc;
 	private Vector2 Loc;
 	private bool gazedAt;      
@@ -80,8 +78,11 @@ public class CreateChildNode : MonoBehaviour {
 		CNode.transform.RotateAround (new Vector3 (Vector3.zero.x,CNode.transform.position.y,Vector3.zero.y), Vector3.up,30f);
 		CNode.name = "Node" + Loc.x +", "+ Loc.y;
 		Debug.Log (GlobalV.number);
-		arrowInput1 = tempLoc;
-		arrowInput2 = CNode.transform.position;
+		drawLine drawline = Line.GetComponent<drawLine>();
+		Line.transform.position = tempLoc;
+		Line.transform.Translate(new Vector3(-3.4f,1.5f-3f*nodecount,0));
+		Line.transform.RotateAround(new Vector3 (Vector3.zero.x,CNode.transform.position.y,Vector3.zero.y), Vector3.up,30f);
+		//drawline.draw(tempLoc,Line.transform.position);
 	}
 
 }

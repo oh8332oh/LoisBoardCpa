@@ -24,8 +24,6 @@ public class InterFace : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-
 		if (gazedAt) {
 			Timer += Time.deltaTime;
 		}
