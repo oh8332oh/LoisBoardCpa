@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class CreateChildNode : MonoBehaviour
 {
-
+	public Material linema;
   public Vector3 arrowInput1;
   public Vector3 arrowInput2;
   public GameObject Node;
@@ -19,10 +19,9 @@ public class CreateChildNode : MonoBehaviour
   private float Timer;
   private float gazeTime = 1f;
   private float nodecount;
-
-	public static Vector3 startDirectionY;
-
-
+  public static Vector3 startDirectionY;
+  public LineRenderer lineRenderer;
+	private GameObject Line;
   //부딪쳤을 때 부딪친 노드를 바라보는 방향 벡터
   Vector3 startDirection;
 
@@ -35,7 +34,7 @@ public class CreateChildNode : MonoBehaviour
 
 
     startDirection = transform.parent.position;
-
+	
 
 
   }
@@ -153,7 +152,6 @@ public class CreateChildNode : MonoBehaviour
     //GlobalV.a++;
     //if(GlobalV.nodeLoc[a,GlobalV.b-1] == 1)
     //{
-
     CNode = Instantiate(Node);
 
     // Vector3 a = transform.position - new Vector3(-1.7f,1.5f-3f*nodecount,0);
@@ -164,41 +162,65 @@ public class CreateChildNode : MonoBehaviour
     // CNode.transform.Translate(new Vector3(-1.7f,1.5f-3f*nodecount,0));
 
     CNode.transform.position = transform.parent.position;
-
     CNode.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
-
     startDirectionY = CNode.transform.position;
-
-
     CNode.transform.LookAt(Camera.main.transform.position);
     CNode.transform.Rotate(Vector3.up, 180f);
-
-
     CNode.name = "Node" + Loc.x + ", " + Loc.y;
     // Debug.Log (GlobalV.number);
 
-    arrowInput1 = tempLoc;
-    arrowInput2 = CNode.transform.position;
-
+		GameObject poz = new GameObject ();
+		poz.transform.position = transform.parent.position + new Vector3 (-1.5f, 0f, 0f);;
+		poz.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
+		poz.transform.LookAt(Camera.main.transform.position);
+		poz.transform.Rotate(Vector3.up, 180f);
+		linedraw (transform.position, poz.transform.position);
+		Destroy (poz);
   }
 
   public void CreateChildY()
   {
+		
     CNode = Instantiate(Node);
 
     //충돌지점으로 노드를 둔다.
     CNode.transform.position = CameraRay.Instance.hitLocation;
-
-    //
     CNode.transform.RotateAround(Vector3.zero, Vector3.right, -30f);
-
     //카메라를 향하게 한다.
     CNode.transform.LookAt(Camera.main.transform.position);
-
     //180도 돌려서 정면을 바라보게 한다.
     CNode.transform.Rotate(Vector3.up, 180f);
+		GameObject poz = new GameObject ();
+		poz.transform.position = CameraRay.Instance.hitLocation;
+		poz.transform.position -= new Vector3 (1.5f, 0, 0);
+		poz.transform.RotateAround(Vector3.zero, Vector3.right, -30f);
+		poz.transform.LookAt(Camera.main.transform.position);
+		poz.transform.Rotate(Vector3.up, 180f);
+		linedraw (transform.position, poz.transform.position);
+		Destroy (poz);
   }
 
+	public void linedraw(Vector3 start,Vector3 End)
+	{
+		Line = new GameObject ("Line");
+		Line.transform.parent = gameObject.transform.parent.parent;
+		Line.AddComponent<LineRenderer> ();
+		Line.GetComponent<LineRenderer> ().endWidth = 0.1f;
+		Line.GetComponent<LineRenderer> ().startWidth = 0.1f;
+		//Line.GetComponent<LineRenderer> ().SetColors(color ,color);
+		Line.GetComponent<LineRenderer> ().SetPosition (0, start);
+		Line.GetComponent<LineRenderer> ().SetPosition (1, End);
+		Line.GetComponent<LineRenderer> ().material = linema;
 
+
+		/*
+		lineRenderer = Line.AddComponent<LineRenderer> ();
+		lineRenderer.material = new Material (Shader.Find ("Particles/Additicve"));
+		lineRenderer.SetColors (Color.grey, Color.grey);
+		lineRenderer.SetWidth (0.2f, 0.2f);
+		lineRenderer.SetVertexCount (2);
+		*/
+		Debug.Log (start + "and" + End);
+	}
 
 }
