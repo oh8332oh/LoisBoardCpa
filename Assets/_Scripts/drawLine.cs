@@ -14,8 +14,6 @@ public class drawLine{
 	public float lineDrawSpeed = 6f;
 	// Use this for initialization
 	void Start () {
-		input1 = GameObject.Find ("plus").GetComponent<CreateChildNode> ().arrowInput1;
-		input2 = GameObject.Find ("plus").GetComponent<CreateChildNode> ().arrowInput2;
 		lineRenderer.SetPosition (0, input1);
 		dist = Vector3.Distance (input1, input2);
 	}
