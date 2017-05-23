@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class CreateChildNode : MonoBehaviour
 {
-	public Material linema;
+  public Material linema;
   public Vector3 arrowInput1;
   public Vector3 arrowInput2;
   public GameObject Node;
@@ -21,7 +21,7 @@ public class CreateChildNode : MonoBehaviour
   private float nodecount;
   public static Vector3 startDirectionY;
   public LineRenderer lineRenderer;
-	private GameObject Line;
+  private GameObject Line;
   //부딪쳤을 때 부딪친 노드를 바라보는 방향 벡터
   Vector3 startDirection;
 
@@ -34,7 +34,7 @@ public class CreateChildNode : MonoBehaviour
 
 
     startDirection = transform.parent.position;
-	
+
 
 
   }
@@ -69,7 +69,7 @@ public class CreateChildNode : MonoBehaviour
     Timer = 0f;
   }
 
-  //포인터 다운이 발동 되면
+  //포인터를 두고 클릭시
   public void PointerDown()
   {
     //먼저 레이를 발생시켜서 검사가 되면 => 노드를 생성한다.
@@ -84,44 +84,34 @@ public class CreateChildNode : MonoBehaviour
     // bool switchOnX = CameraRay.Instance.SearchPosition(startDirection);
 
     //만약에 오른쪽에 박스가 있으면 
-		//
-    if (CameraRay.Instance.SearchRight(startDirection))
-    {
-			//충돌이 있었다면 / 오른쪽에 박스가 있다면
-			//시작할 방향 변수를 전달해야 한다.
-			
-			
-			
+    //
+    // if (CameraRay.Instance.SearchRight(startDirection))
+    // {
+    // 	//충돌이 있었다면 / 오른쪽에 박스가 있다면
+    // 	//시작할 방향 변수를 전달해야 한다.
 
 
-      //써칭한다.
-      //그 지점에서 z축을 중심으로 회전하면서 써칭한다.
-      //시작지점 값을 보낸다.
-			//시작 지점 값은 누른 플러스 버튼의 바로 오른쪽의 충돌 지점의 위쪽이다.
-      if (CameraRay.Instance.SearchPosition(startDirectionY))
-      {
-        CreateChildY();
-      }
-      else
-      {
-        CreateChildY();
-      }
-
-    }
-    else
-    {
-      CreateChildX();
-    }
 
 
-    // if(switchOnX){
-    // //노드 생성하는 함수를 켠다.
-    // CreateChild ();
-    // }else{
 
+    //   //써칭한다.
+    //   //그 지점에서 z축을 중심으로 회전하면서 써칭한다.
+    //   //시작지점 값을 보낸다.
+    // 	//시작 지점 값은 누른 플러스 버튼의 바로 오른쪽의 충돌 지점의 위쪽이다.
+    //   if (CameraRay.Instance.SearchPosition(startDirectionY))
+    //   {
+    //     CreateChildY();
+    //   }
+    //   else
+    //   {
+    //     CreateChildY();
+    //   }
 
     // }
-
+    // else
+    // {
+    //   CreateChildX();
+    // }
 
 
 
@@ -129,10 +119,54 @@ public class CreateChildNode : MonoBehaviour
 
 
 
+    //다시 작성
+    //먼저 부모 +버튼을 누른 녀석의 노드를 탐색한다.
+    //부모 노드에 있는 리스트에 자식이 있는지 확인한다.
+
+
+
+    int nodeCount = NodeList.childList.Count;
+
+    if (nodeCount == 0)
+    {
+      //리스트에 아무것도 없다면 리스트에 노드를 넣고 생성한다.
+      //먼저 노드를 생성한다. 만든 곳에서 
+
+      GameObject testnode = CreateChildX();
+      NodeList.Instance.CreateList(testnode);
+
+      // SetPosition(testnode, 1);
+
+
+
+    }
+    else
+    {
+      //리스트에 들어있다면
+      //리스트의 숫자를 읽어서 각도로 활용한다.
+      //먼저 마지막의 노드를 가져온다.
+      GameObject testnode1 = Instantiate(Node);
+
+      
+
+      SetPosition(testnode1, nodeCount);
+      NodeList.Instance.CreateList(testnode1);
+
+
+    }
+
+
+
+
+
+
+
+
+
   }
 
   //만드는 역할만 수행할 수 있게 한다. 
-  public void CreateChildX()
+  public GameObject CreateChildX()
   {
 
 
@@ -153,7 +187,7 @@ public class CreateChildNode : MonoBehaviour
     //if(GlobalV.nodeLoc[a,GlobalV.b-1] == 1)
     //{
     CNode = Instantiate(Node);
-		//CNode.transform.parent = gameObject.transform.parent.parent;
+    //CNode.transform.parent = gameObject.transform.parent.parent;
     // Vector3 a = transform.position - new Vector3(-1.7f,1.5f-3f*nodecount,0);
     // Vector3 b = transform.parent.position;
 
@@ -163,64 +197,76 @@ public class CreateChildNode : MonoBehaviour
 
     CNode.transform.position = transform.parent.position;
     CNode.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
-    startDirectionY = CNode.transform.position;
-    CNode.transform.LookAt(Camera.main.transform.position);
-    CNode.transform.Rotate(Vector3.up, 180f);
-    CNode.name = "Node" + Loc.x + ", " + Loc.y;
-    // Debug.Log (GlobalV.number);
+    // startDirectionY = CNode.transform.position;
+    // CNode.transform.LookAt(Camera.main.transform.position);
+    // CNode.transform.Rotate(Vector3.up, 180f);
+    // CNode.name = "Node" + Loc.x + ", " + Loc.y;
 
-		GameObject poz = new GameObject ();
-		poz.transform.position = transform.parent.position + new Vector3 (-1.5f, 0f, 0f);;
-		poz.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
-		poz.transform.LookAt(Camera.main.transform.position);
-		poz.transform.Rotate(Vector3.up, 180f);
-		linedraw (CNode,transform.position, poz.transform.position);
-		Destroy (poz);
+    // GameObject poz = new GameObject ();
+    // poz.transform.position = transform.parent.position + new Vector3 (-1.5f, 0f, 0f);;
+    // poz.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
+    // poz.transform.LookAt(Camera.main.transform.position);
+    // poz.transform.Rotate(Vector3.up, 180f);
+    // linedraw (CNode,transform.position, poz.transform.position);
+    // Destroy (poz);
+
+    return CNode;
   }
 
   public void CreateChildY()
   {
-		
+
     CNode = Instantiate(Node);
-		//CNode.transform.parent = gameObject.transform.parent.parent;
+    //CNode.transform.parent = gameObject.transform.parent.parent;
     //충돌지점으로 노드를 둔다.
     CNode.transform.position = CameraRay.Instance.hitLocation;
     CNode.transform.RotateAround(Vector3.zero, Vector3.right, -30f);
+
     //카메라를 향하게 한다.
     CNode.transform.LookAt(Camera.main.transform.position);
     //180도 돌려서 정면을 바라보게 한다.
     CNode.transform.Rotate(Vector3.up, 180f);
-		GameObject poz = new GameObject ();
-		poz.transform.position = CameraRay.Instance.hitLocation;
-		poz.transform.position -= new Vector3 (1.5f, 0, 0);
-		poz.transform.RotateAround(Vector3.zero, Vector3.right, -30f);
-		poz.transform.LookAt(Camera.main.transform.position);
-		poz.transform.Rotate(Vector3.up, 180f);
-		linedraw (CNode,transform.position, poz.transform.position);
-		Destroy (poz);
+    GameObject poz = new GameObject();
+    poz.transform.position = CameraRay.Instance.hitLocation;
+    poz.transform.position -= new Vector3(1.5f, 0, 0);
+    poz.transform.RotateAround(Vector3.zero, Vector3.right, -30f);
+    poz.transform.LookAt(Camera.main.transform.position);
+    poz.transform.Rotate(Vector3.up, 180f);
+    linedraw(CNode, transform.position, poz.transform.position);
+    Destroy(poz);
   }
 
-	public void linedraw(GameObject mother, Vector3 start,Vector3 End)
-	{
-		Line = new GameObject ("Line");
-		Line.transform.parent = CNode.transform;
-		Line.AddComponent<LineRenderer> ();
-		Line.GetComponent<LineRenderer> ().endWidth = 0.1f;
-		Line.GetComponent<LineRenderer> ().startWidth = 0.1f;
-		//Line.GetComponent<LineRenderer> ().SetColors(color ,color);
-		Line.GetComponent<LineRenderer> ().SetPosition (0, start);
-		Line.GetComponent<LineRenderer> ().SetPosition (1, End);
-		Line.GetComponent<LineRenderer> ().material = linema;
+  public void linedraw(GameObject mother, Vector3 start, Vector3 End)
+  {
+    Line = new GameObject("Line");
+    Line.transform.parent = CNode.transform;
+    Line.AddComponent<LineRenderer>();
+    Line.GetComponent<LineRenderer>().endWidth = 0.1f;
+    Line.GetComponent<LineRenderer>().startWidth = 0.1f;
+    //Line.GetComponent<LineRenderer> ().SetColors(color ,color);
+    Line.GetComponent<LineRenderer>().SetPosition(0, start);
+    Line.GetComponent<LineRenderer>().SetPosition(1, End);
+    Line.GetComponent<LineRenderer>().material = linema;
 
 
-		/*
+    /*
 		lineRenderer = Line.AddComponent<LineRenderer> ();
 		lineRenderer.material = new Material (Shader.Find ("Particles/Additicve"));
 		lineRenderer.SetColors (Color.grey, Color.grey);
 		lineRenderer.SetWidth (0.2f, 0.2f);
 		lineRenderer.SetVertexCount (2);
 		*/
-		Debug.Log (start + "and" + End);
-	}
+    Debug.Log(start + "and" + End);
+  }
+
+
+
+  public void SetPosition(GameObject Node, float order)
+  {
+    float degree = 30*order;
+
+    Node.transform.RotateAround(Vector3.zero, Vector3.right, degree);
+
+  }
 
 }

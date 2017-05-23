@@ -70,10 +70,17 @@ public class CameraRay : MonoBehaviour
     for (int i = 0; i < 12; i++)
     {
 
-      Quaternion v3Rotation = Quaternion.Euler(-30f * i, 0, 0);  // 회전각
+      // Quaternion v3Rotation = Quaternion.Euler(-30f * i, 0, 0);  // 회전각
 
       //초기 서칭 기준점은 플러스 버튼을 누른 부모의 오른쪽 한칸이어야 한다.
 
+
+      // startDirection.
+      //회전축을 충돌방향에서 수직인 벡터를 사용해야 한다.
+      Quaternion v3Rotation =  Quaternion.AngleAxis(30*-i, Vector3.right);
+
+
+      // Vector3 rayDirection = v3Rotation.eulerAngles;
 
 
       Vector3 rayDirection = v3Rotation * startDirection;
@@ -116,7 +123,10 @@ public class CameraRay : MonoBehaviour
       // GameObject hitobj=hitInfo.transform.gameObject;
       // hitLocation = hitobj.transform.position;
 
+      // print(hitInfo.distance);
+
       hitLocation = hitInfo.point;
+
       print(hitLocation);
 
 
@@ -137,7 +147,6 @@ public class CameraRay : MonoBehaviour
     //레이를 생성한다.
     Ray ray = new Ray(sourcePoint, rayDirection);
     RaycastHit hitInfo = new RaycastHit();
-
 
 
     bool collideOn =false;
@@ -165,8 +174,6 @@ public class CameraRay : MonoBehaviour
       Debug.DrawLine(sourcePoint, rayDirection, Color.green, duration);
 
     return collideOn;
-
-
   }
 
 
