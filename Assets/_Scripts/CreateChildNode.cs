@@ -153,22 +153,20 @@ public class CreateChildNode : MonoBehaviour
     //if(GlobalV.nodeLoc[a,GlobalV.b-1] == 1)
     //{
     CNode = Instantiate(Node);
-		//CNode.transform.parent = gameObject.transform.parent.parent;
     // Vector3 a = transform.position - new Vector3(-1.7f,1.5f-3f*nodecount,0);
     // Vector3 b = transform.parent.position;
 
 
     //위치 보정
     // CNode.transform.Translate(new Vector3(-1.7f,1.5f-3f*nodecount,0));
-
-    CNode.transform.position = transform.parent.position;
-    CNode.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
-    startDirectionY = CNode.transform.position;
+		CNode.transform.parent = gameObject.transform.parent.parent;
+    /CNode.transform.position = transform.parent.position;
+	CNode.transform.RotateAround(new Vector3(0f,0f,0f), Vector3.up, 30f);
+	startDirectionY = CNode.transform.position;
     CNode.transform.LookAt(Camera.main.transform.position);
     CNode.transform.Rotate(Vector3.up, 180f);
     CNode.name = "Node" + Loc.x + ", " + Loc.y;
     // Debug.Log (GlobalV.number);
-
 		GameObject poz = new GameObject ();
 		poz.transform.position = transform.parent.position + new Vector3 (-1.5f, 0f, 0f);;
 		poz.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
@@ -176,16 +174,16 @@ public class CreateChildNode : MonoBehaviour
 		poz.transform.Rotate(Vector3.up, 180f);
 		linedraw (CNode,transform.position, poz.transform.position);
 		Destroy (poz);
+	
   }
 
   public void CreateChildY()
   {
 		
-    CNode = Instantiate(Node);
-		//CNode.transform.parent = gameObject.transform.parent.parent;
+    CNode = Instantiate(Node);	
     //충돌지점으로 노드를 둔다.
     CNode.transform.position = CameraRay.Instance.hitLocation;
-    CNode.transform.RotateAround(Vector3.zero, Vector3.right, -30f);
+		CNode.transform.RotateAround(new Vector3(0f,0f,0f), Vector3.right, -30f);
     //카메라를 향하게 한다.
     CNode.transform.LookAt(Camera.main.transform.position);
     //180도 돌려서 정면을 바라보게 한다.
@@ -198,6 +196,7 @@ public class CreateChildNode : MonoBehaviour
 		poz.transform.Rotate(Vector3.up, 180f);
 		linedraw (CNode,transform.position, poz.transform.position);
 		Destroy (poz);
+	//	CNode.transform.parent = gameObject.transform.parent.parent;
   }
 
 	public void linedraw(GameObject mother, Vector3 start,Vector3 End)

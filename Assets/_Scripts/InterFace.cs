@@ -16,10 +16,9 @@ public class InterFace : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		tempLoc = transform.localPosition;
-		tempRot = transform.localRotation;
+		tempLoc = gameObject.transform.position;
+		tempRot = gameObject.transform.rotation;
 		Timer = 0f;
-		GlobalV.nodeLoc [GlobalV.a, GlobalV.b] = 1;
 	}
 
 	// Update is called once per frame
@@ -44,8 +43,6 @@ public class InterFace : MonoBehaviour {
 	public void PointerEnter()
 	{   
 		gazedAt = true;
-		GlobalV.a = 0;
-		GlobalV.b = 10;
 	}	
 
 	public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
