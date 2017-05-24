@@ -134,33 +134,9 @@ public class CreateChildNode : MonoBehaviour
   //만드는 역할만 수행할 수 있게 한다. 
   public void CreateChildX()
   {
-
-
-    /*
-		tempLoc.x = Mathf.Sin(Mathf.Deg2Rad*30f*GlobalV.number)*10f;
-		tempLoc.y = 0;
-		tempLoc.z = Mathf.Cos (Mathf.Deg2Rad*30f * GlobalV.number)*10f;
-		*/
-
-    //tempLoc += new Vector3 (5f, 0f, -5 * Mathf.Tan(Mathf.Deg2Rad * 15f));
-    //*5/Mathf.Cos(Mathf.Deg2Rad*15f)
-    //CNode.transform.TransformDirection(new Vector3(5,0,-5*Mathf.Tan(Mathf.Deg2Rad * 15f)));
-    //CNode.transform.Translate(new Vector3(3.4f,0,-3.4f*Mathf.Tan(Mathf.Deg2Rad * 15f)),Space.Self);
-    //CNode.transform.Rotate (new Vector3 (0, 30, 0));
-
-    //int a = 1;
-    //GlobalV.a++;
-    //if(GlobalV.nodeLoc[a,GlobalV.b-1] == 1)
-    //{
-    CNode = Instantiate(Node);
-    // Vector3 a = transform.position - new Vector3(-1.7f,1.5f-3f*nodecount,0);
-    // Vector3 b = transform.parent.position;
-
-
-    //위치 보정
-    // CNode.transform.Translate(new Vector3(-1.7f,1.5f-3f*nodecount,0));
-		CNode.transform.parent = gameObject.transform.parent.parent;
-    /CNode.transform.position = transform.parent.position;
+	CNode = Instantiate(Node);
+	//CNode.transform.parent = gameObject.transform.parent.parent;
+    CNode.transform.position = transform.parent.position;
 	CNode.transform.RotateAround(new Vector3(0f,0f,0f), Vector3.up, 30f);
 	startDirectionY = CNode.transform.position;
     CNode.transform.LookAt(Camera.main.transform.position);
