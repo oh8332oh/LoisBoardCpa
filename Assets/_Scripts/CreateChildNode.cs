@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class CreateChildNode : MonoBehaviour
 {
-	public Material linema;
+  public Material linema;
   public Vector3 arrowInput1;
   public Vector3 arrowInput2;
   public GameObject Node;
@@ -21,7 +21,7 @@ public class CreateChildNode : MonoBehaviour
   private float nodecount;
   public static Vector3 startDirectionY;
   public LineRenderer lineRenderer;
-	private GameObject Line;
+  private GameObject Line;
   //부딪쳤을 때 부딪친 노드를 바라보는 방향 벡터
   Vector3 startDirection;
 
@@ -177,15 +177,13 @@ public class CreateChildNode : MonoBehaviour
 
 	public void linedraw(GameObject mother, Vector3 start,Vector3 End)
 	{
-		Line = new GameObject ("Line");
-		Line.transform.parent = CNode.transform;
-		Line.AddComponent<LineRenderer> ();
-		Line.GetComponent<LineRenderer> ().endWidth = 0.1f;
-		Line.GetComponent<LineRenderer> ().startWidth = 0.1f;
+		mother.AddComponent<LineRenderer> ();
+		mother.GetComponent<LineRenderer> ().endWidth = 0.1f;
+		mother.GetComponent<LineRenderer> ().startWidth = 0.1f;
 		//Line.GetComponent<LineRenderer> ().SetColors(color ,color);
-		Line.GetComponent<LineRenderer> ().SetPosition (0, start);
-		Line.GetComponent<LineRenderer> ().SetPosition (1, End);
-		Line.GetComponent<LineRenderer> ().material = linema;
+		mother.GetComponent<LineRenderer> ().SetPosition (0, start);
+		mother.GetComponent<LineRenderer> ().SetPosition (1, End);
+		mother.GetComponent<LineRenderer> ().material = linema;
 
 
 		/*
@@ -197,5 +195,5 @@ public class CreateChildNode : MonoBehaviour
 		*/
 		Debug.Log (start + "and" + End);
 	}
-
+		
 }

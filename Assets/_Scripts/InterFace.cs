@@ -13,7 +13,6 @@ public class InterFace : MonoBehaviour {
 	private float Timer;
 	private float gazeTime = 1.0f;
 	public float nodecount= 0f;
-
 	// Use this for initialization
 	void Start () {
 		tempLoc = gameObject.transform.position;
@@ -31,6 +30,7 @@ public class InterFace : MonoBehaviour {
 
 		//바라보게 되면 
 		if (Timer>=gazeTime&&gazedAt&&!onetime) {
+
 
 			//노드를 생성한다.
 			button = Instantiate (interfacePrefab,tempLoc,tempRot);

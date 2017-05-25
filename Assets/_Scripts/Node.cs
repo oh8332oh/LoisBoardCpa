@@ -2,15 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NodeInfo
-{    
-	public Vector2 parent;
-	public Vector2 location;
-	public GameObject node;
 
-	public NodeInfo(GameObject newnode, Vector2 newparent, Vector2 newlocation){
-		this.node = newnode;
-		this.location = newlocation;
-		this.parent = newparent;
+public class Node : MonoBehaviour
+{   
+	public static List<NodeI> NodeIn = new List<NodeI> ();
+	public static Node Instance = null;
+	public GameObject Root;
+	private void Awake()
+	{
+		if (Instance == null) {
+			Instance = this;
+		}
 	}
+	public class NodeI
+	{    
+		GameObject Node;
+		NodeI MNode;
+		NodeI[] CNode;
+		public NodeI(GameObject nNode, NodeI nMNode){
+			this.Node = nNode;
+			this.MNode = nMNode;
+		}
+		public void CAdd(NodeI nNodeI, NodeI CNode){
+			int i = 0;
+			while(nNodeI.CNode[i].Node){
+				i++;
+			}
+			nNodeI.CNode [i] = CNode;
+		}
+		public void Delete (NodeI nNodeI){
+			Destroy(nNodeI.Node);
+		}
+		void update(){
+			if (Node == null)
+				for (int i = 0; i < CNode.Length; i++) {
+					Destroy(CNode [i].Node);
+				}
+		}
+	}
+
 }
