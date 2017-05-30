@@ -46,7 +46,7 @@ public class CreateChildNode : MonoBehaviour
     {
       Timer += Time.deltaTime;
     }
-
+	
     //몇초동안 바라보면 => 버튼을 생성하게 한다
     //몇초동안 바라보면 포인터 다운 발동.
     if (Timer >= gazeTime && gazedAt && !onetime)

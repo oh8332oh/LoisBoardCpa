@@ -7,6 +7,7 @@ public class Right : MonoBehaviour {
 	private float Timer;
 	private float gazeTime = 1.0f;
 	private float at;
+	private float cnt=0;
 	// Use this for initialization
 	void Start () {
 		Timer = 1.0f;
@@ -14,8 +15,12 @@ public class Right : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		   
+
+		  //  Camera.main.transform.eulerAngles = new Vector3 (0, cnt, 0);
 			if (gazedAt&&(Camera.main.transform.position != Vector3.zero)) {
 			ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
+			//bar.transform.RotateAround (Camera.main.transform.position, Vector3.up, -0.5f);
 		}
 	}
 
@@ -30,11 +35,10 @@ public class Right : MonoBehaviour {
 		Timer = 0f;
 	}
 
-	public void rot(){
-		GameObject[] Node = GameObject.FindGameObjectsWithTag ("Node");
-		for (int i = 0; i < Node.Length; i++) {
-			Node [i].transform.RotateAround (Vector3.zero, Vector3.up, -1f);
-		}
-
+	public void rotR(){
+		Camera.main.transform.RotateAround (Vector3.zero, Vector3.up, 1f);
+		Camera.main.transform.eulerAngles = new Vector3 (0, cnt, 0);
+		cnt++;
 	}
+
 }

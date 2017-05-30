@@ -1,38 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Right.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Board\Right.cs">
     <Files>
-      <File FileName="Assets\_Scripts\drawLine.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Scripts\CreateChildNode.cs" Line="160" Column="21" />
-      <File FileName="Assets\_Scripts\InterFace.cs" Line="58" Column="1" />
-      <File FileName="Assets\_Scripts\InputInterface.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Scripts\GlobalV.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Scripts\InterFaceN.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Scripts\Node.cs" Line="16" Column="3" />
-      <File FileName="Assets\_Scripts\Expand.cs" Line="12" Column="18" />
-      <File FileName="Assets\_Scripts\movbar.cs" Line="52" Column="3" />
-      <File FileName="Assets\_Scripts\Right.cs" Line="41" Column="1" />
-      <File FileName="Assets\_Scripts\Left.cs" Line="39" Column="1" />
-      <File FileName="Assets\_Scripts\Reduce.cs" Line="13" Column="14" />
+      <File FileName="Assets\_Scripts\Main Scenes\NewBoard.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Board\Right.cs" Line="37" Column="2" />
+      <File FileName="Assets\_Scripts\Board\CreateChildNode.cs" Line="33" Column="19" />
+      <File FileName="Assets\_Scripts\Board\movbar.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Board\InterFace.cs" Line="18" Column="23" />
+      <File FileName="Assets\_Scripts\Board\Home.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Main Scenes\ExistBoard.cs" Line="28" Column="44" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="LoisBoardCpa" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="_Scripts" expanded="True">
-                <Node name="Right.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="LoisBoardCpa" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
