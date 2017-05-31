@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Home : MonoBehaviour {
 
-	public static Scene MindMap;
+	//public static Scene MindMap;
 	public static int Mindnum = 0;
 	// Use this for initialization
 	private bool gazedAt;      
@@ -17,6 +17,7 @@ public class Home : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Timer = 0f;
+
 	}
 
 	// Update is called once per frame
@@ -26,10 +27,9 @@ public class Home : MonoBehaviour {
 		}
 
 		if (gazedAt&&Timer>=gazeTime&&!onetime) {
-			MindMap = SceneManager.GetActiveScene();
+			//Mindnum = SceneManager.GetActiveScene();
+			NewBoard.currentScene = SceneManager.GetActiveScene().buildIndex;
 			SceneManager.LoadScene ("MainScene", LoadSceneMode.Single);
-
-			//Mindnum++;
 			onetime = true;
 
 			//ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
@@ -49,6 +49,11 @@ public class Home : MonoBehaviour {
 		onetime = false;
 		Timer = 0f;
 		Debug.Log ("exit");
+	}
+
+	public void destroy()
+	{
+		
 	}
 	public void PointerDown()
 	{

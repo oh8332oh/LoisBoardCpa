@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-
+using UnityEditor;
 public class NewBoard : MonoBehaviour {
-
+	
 	public static Scene MindMap;
-	public static int Mindnum = 0;
+	public static int Mindnum = 1;
+	public static int currentScene;
 	// Use this for initialization
 	private bool gazedAt;      
 	private bool onetime;
@@ -26,12 +27,16 @@ public class NewBoard : MonoBehaviour {
 		}
 
 		if (gazedAt&&Timer>=gazeTime&&!onetime) {
-			SceneManager.LoadScene ("LoisBoardCpa", LoadSceneMode.Single);
+			SceneManager.LoadScene (1);
 
-		//	Mindnum++;
+			//EditorApplication.SaveScene ("Assets.unity");
+			//SceneManager.UnloadScene (1);
+
+			currentScene = Mindnum;
+			Mindnum++;
 			onetime = true;
+
 			//ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
-			//Debug.Log ("true");
 		}
 	}
 
@@ -54,4 +59,15 @@ public class NewBoard : MonoBehaviour {
 		//Mindnum++;
 		//Debug.Log ("Created??");
 	}
+	/*
+	public void UnLoadScene (int scene)
+	{
+		StartCoroutine(Unload (scene));
+	}
+	IEnumerator Unload(int scene)
+	{
+		yield return null;
+		SceneManager.UnloadScene (scene);
+	}
+	*/
 }

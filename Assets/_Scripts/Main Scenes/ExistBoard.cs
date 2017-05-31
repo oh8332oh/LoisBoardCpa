@@ -26,9 +26,7 @@ public class ExistBoard : MonoBehaviour {
 		}
 
 		if (gazedAt&&Timer>=gazeTime&&!onetime) {
-			exist = Home.MindMap;
-			SceneManager.SetActiveScene (exist);
-
+			SceneManager.LoadSceneAsync (NewBoard.currentScene);
 			//	Mindnum++;
 			onetime = true;
 			//ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
