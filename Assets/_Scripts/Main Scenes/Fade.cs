@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//의미없는 스크립트 씬의 변화가 있을때 바로 안봐끼고 천천히 사라졌다가 천천히 나타나게하려했음 
 public class Fade : MonoBehaviour {
 	public Texture2D fadeOutTexture;
 	public float fadeSpeed = 0.8f;

@@ -36,8 +36,8 @@ public class Right : MonoBehaviour {
 	}
 
 	public void rotR(){
-		Camera.main.transform.RotateAround (Vector3.zero, Vector3.up, 1f);
-		Camera.main.transform.eulerAngles = new Vector3 (0, cnt, 0);
+		Camera.main.transform.RotateAround (Vector3.zero, Vector3.up, 1f); // 카메메라를 중심으로 무빙바를 회저전한다.
+		Camera.main.transform.eulerAngles = new Vector3 (0, cnt, 0);  // 카메라의 시점을바꾸는함수인 줄 알았으나 실패 하지만 이런 형식으로 해야될것 같다.
 		cnt++;
 	}
 

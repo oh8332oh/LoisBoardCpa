@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 using UnityEditor;
 public class NewBoard : MonoBehaviour {
 	
-	public static Scene MindMap;
-	public static int Mindnum = 1;
-	public static int currentScene;
+	public static Scene MindMap; //의미없음
+	public static int Mindnum = 1;  // 새로운 마인드맵들에게 넘버링하려고 시도할려했던것
+	public static int currentScene; //현재의 씬을 저장하려는 변수
 	// Use this for initialization
 	private bool gazedAt;      
 	private bool onetime;
@@ -27,13 +27,13 @@ public class NewBoard : MonoBehaviour {
 		}
 
 		if (gazedAt&&Timer>=gazeTime&&!onetime) {
-			SceneManager.LoadScene (1);
+			SceneManager.LoadScene (1); //1에 저장된 씬을 로드한다. -> 1은 빌드셋팅에 윗부분에 있ㅏ.
 
 			//EditorApplication.SaveScene ("Assets.unity");
 			//SceneManager.UnloadScene (1);
 
-			currentScene = Mindnum;
-			Mindnum++;
+			currentScene = Mindnum; // 의미없음
+			Mindnum++;  //의미없음
 			onetime = true;
 
 			//ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);

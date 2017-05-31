@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//의미없는 스크립트
 
 public class Node : MonoBehaviour
 {   

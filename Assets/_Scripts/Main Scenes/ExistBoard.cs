@@ -26,7 +26,7 @@ public class ExistBoard : MonoBehaviour {
 		}
 
 		if (gazedAt&&Timer>=gazeTime&&!onetime) {
-			SceneManager.LoadSceneAsync (NewBoard.currentScene);
+			SceneManager.LoadSceneAsync (NewBoard.currentScene);  // Home 에서 저장한 노드에 데이터가 입력된 씬을 부르려 했으나 실패
 			//	Mindnum++;
 			onetime = true;
 			//ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);

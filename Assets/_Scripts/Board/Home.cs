@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class Home : MonoBehaviour {
 
 	//public static Scene MindMap;
-	public static int Mindnum = 0;
+	public static int Mindnum = 0; //의미없음
 	// Use this for initialization
 	private bool gazedAt;      
 	private bool onetime;
@@ -28,8 +28,8 @@ public class Home : MonoBehaviour {
 
 		if (gazedAt&&Timer>=gazeTime&&!onetime) {
 			//Mindnum = SceneManager.GetActiveScene();
-			NewBoard.currentScene = SceneManager.GetActiveScene().buildIndex;
-			SceneManager.LoadScene ("MainScene", LoadSceneMode.Single);
+			NewBoard.currentScene = SceneManager.GetActiveScene().buildIndex;  //노드에 데이터를 입려력하고 다시저장하려 했느는데 이방방법이 아닌듯.
+			SceneManager.LoadScene ("MainScene", LoadSceneMode.Single);  // MainScene 이라는 이름을 가진 씬을 불른다. Single은 MainScene 이외의 씬은 없앤다는 뜻
 			onetime = true;
 
 			//ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
