@@ -25,6 +25,8 @@ public class CreateChildNode : MonoBehaviour
   //부딪쳤을 때 부딪친 노드를 바라보는 방향 벡터
   Vector3 startDirection;
 
+  Vector3 parentPostion;
+
 
   void Start()
   {
@@ -35,7 +37,7 @@ public class CreateChildNode : MonoBehaviour
 
     startDirection = transform.parent.position;
 
-
+    parentPostion = transform.parent.position;
 
   }
 
@@ -58,7 +60,7 @@ public class CreateChildNode : MonoBehaviour
 
   public void PointEnter()
   {
-    gazedAt = true;
+    // gazedAt = true;
   }
 
   public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
@@ -91,7 +93,7 @@ public class CreateChildNode : MonoBehaviour
     // 	//시작할 방향 변수를 전달해야 한다.
 
 
-
+    onetime = true;
 
 
     //   //써칭한다.
@@ -113,48 +115,82 @@ public class CreateChildNode : MonoBehaviour
     //   CreateChildX();
     // }
 
-
-
-    onetime = true;
+    
 
 
 
+    /*--------------------------------------------------*/
     //다시 작성
     //먼저 부모 +버튼을 누른 녀석의 노드를 탐색한다.
     //부모 노드에 있는 리스트에 자식이 있는지 확인한다.
 
 
 
-    int nodeCount = NodeList.childList.Count;
+   
+    /*--------------------------------------------------*/
 
-    if (nodeCount == 0)
+
+    //보이지않는 충돌체를 일정한 규칙으로 이동시키면서
+    //충돌하지 않을때 생성하도록 만든다.
+
+    //한개의 콜라이더를 가지고 컨트롤 하여서 충돌을 체크한다. 
+
+    //1. +버튼을 클릭하면 
+    //2. 미리 만들어둔 콜라이더를 움직인다
+    //3. 이것을 어떻게 움직이는 지가 핵심 => 자세한 행동은 나중에 생각을 더한다.
+    //4. 먼저 기존의 방식대로 x => 기존의 방식일지라도 배열로 만드는 것은 아니고 충돌 여부를 체크한다.
+    //5. 충돌 체크 했으면 있으면 더 이동시켜보고 없으면 그자리에 생성
+
+    //구조
+    //+버튼을 눌럿을 때 => 
+    //움직이는 기능
+    //충돌하는지를 알아보는 기능 =>
+    //만드는 기능 =>
+
+
+    //1. +버튼 누르면 => +버튼을 가지고 있는 노드의 포지션 값을 넘긴다.
+    //2. 포지션 값을 받아서 정해둔 알고리즘으로 움직인다. 
+    
+    //+버튼을 눌러서 충돌체를 움직인다.
+    SearchCollider.Instance.SetPosition(parentPostion);
+    // SearchCollider.Instance.createSwitch = true;
+
+
+    // CreateNode.Instance.CreateBox();
+    
+
+    
+     int nodeCount = NodeList.childList.Count;
+
+    if (true)
     {
-      //리스트에 아무것도 없다면 리스트에 노드를 넣고 생성한다.
-      //먼저 노드를 생성한다. 만든 곳에서 
+    //   //리스트에 아무것도 없다면 리스트에 노드를 넣고 생성한다.
+    //   //먼저 노드를 생성한다. 만든 곳에서 
 
-      GameObject testnode = CreateChildX();
-      NodeList.Instance.CreateList(testnode);
+      // GameObject testnode = CreateChildX();
+      // NodeList.Instance.CreateList(testnode);
+      // SearchCollider.Instance.SetPosition()
 
-      // SetPosition(testnode, 1);
-
-
-
-    }
-    else
-    {
-      //리스트에 들어있다면
-      //리스트의 숫자를 읽어서 각도로 활용한다.
-      //먼저 마지막의 노드를 가져온다.
-      GameObject testnode1 = Instantiate(Node);
-
+      // SearchCollider.Instance.createSwitch = true;
       
 
-      SetPosition(testnode1, nodeCount);
-      NodeList.Instance.CreateList(testnode1);
-
+    //   // SetPosition(testnode, 1);
 
     }
+    // else
+    // {
+    //   //리스트에 들어있다면
+    //   //리스트의 숫자를 읽어서 각도로 활용한다.
+    //   //먼저 마지막의 노드를 가져온다.
+    //   GameObject testnode1 = Instantiate(Node);
 
+
+
+    //   SetPosition(testnode1, nodeCount);
+    //   NodeList.Instance.CreateList(testnode1);
+
+
+    // }
 
 
 
@@ -263,7 +299,7 @@ public class CreateChildNode : MonoBehaviour
 
   public void SetPosition(GameObject Node, float order)
   {
-    float degree = 30*order;
+    float degree = 30 * order;
 
     Node.transform.RotateAround(Vector3.zero, Vector3.right, degree);
 
