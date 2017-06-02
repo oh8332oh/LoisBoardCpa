@@ -133,13 +133,13 @@ public class SearchCollider : MonoBehaviour
     //움직이고 나서
     //서칭한다.
     //충돌하면 돌아가고 충돌하지 않으면 생성
-    // if()
-    // {
+    if(createCount == 0)
+    {
+      createSwitch = true;
+    }
 
-    // }
 
-
-    createSwitch = true;
+    
 
 
     //충돌체크를 해야한다. => => 
@@ -254,6 +254,8 @@ public class SearchCollider : MonoBehaviour
 
     node.transform.LookAt(Camera.main.transform.position);
     node.transform.Rotate(Vector3.up, 180f);
+
+    
 
   }
 
