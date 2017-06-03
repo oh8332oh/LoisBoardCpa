@@ -115,7 +115,7 @@ public class CreateChildNode : MonoBehaviour
     //   CreateChildX();
     // }
 
-    
+
 
 
 
@@ -126,7 +126,7 @@ public class CreateChildNode : MonoBehaviour
 
 
 
-   
+
     /*--------------------------------------------------*/
 
 
@@ -150,31 +150,28 @@ public class CreateChildNode : MonoBehaviour
 
     //1. +버튼 누르면 => +버튼을 가지고 있는 노드의 포지션 값을 넘긴다.
     //2. 포지션 값을 받아서 정해둔 알고리즘으로 움직인다. 
-    
+
     //+버튼을 눌러서 충돌체를 움직인다.
     SearchCollider.Instance.SetPosition(parentPostion);
+    // SearchCollider.Instance.createSwitch = true;
     // SearchCollider.Instance.createSwitch = true;
 
 
     // CreateNode.Instance.CreateBox();
-    
 
-    
-     int nodeCount = NodeList.childList.Count;
+
+
+    int nodeCount = NodeList.childList.Count;
 
     if (true)
     {
-    //   //리스트에 아무것도 없다면 리스트에 노드를 넣고 생성한다.
-    //   //먼저 노드를 생성한다. 만든 곳에서 
+      //   //리스트에 아무것도 없다면 리스트에 노드를 넣고 생성한다.
+      //   //먼저 노드를 생성한다. 만든 곳에서 
 
-      // GameObject testnode = CreateChildX();
       // NodeList.Instance.CreateList(testnode);
-      // SearchCollider.Instance.SetPosition()
 
-      // SearchCollider.Instance.createSwitch = true;
-      
 
-    //   // SetPosition(testnode, 1);
+
 
     }
     // else
@@ -297,12 +294,5 @@ public class CreateChildNode : MonoBehaviour
 
 
 
-  public void SetPosition(GameObject Node, float order)
-  {
-    float degree = 30 * order;
-
-    Node.transform.RotateAround(Vector3.zero, Vector3.right, degree);
-
-  }
 
 }

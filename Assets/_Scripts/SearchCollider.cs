@@ -26,7 +26,8 @@ public class SearchCollider : MonoBehaviour
 
   int createCount;
   int createCountMax = 11;
-  
+
+
 
 
 
@@ -60,6 +61,7 @@ public class SearchCollider : MonoBehaviour
   {
 
     print(collisionCount);
+    print(createSwitch);
     //currentPostion = transform.position;
     //print("addd" +transform.position);
     //currentTime+=Time.deltaTime;
@@ -74,7 +76,8 @@ public class SearchCollider : MonoBehaviour
 
       CreateBox();
 
-    }else if(collisionCount ==1 && createSwitch)
+    }
+    else if (collisionCount == 1 && createSwitch)
     {
       rotateBox();
     }
@@ -130,16 +133,19 @@ public class SearchCollider : MonoBehaviour
     transform.position = nodeDirection;
     transform.RotateAround(Vector3.zero, Vector3.up, 30);
 
+
     //움직이고 나서
     //서칭한다.
     //충돌하면 돌아가고 충돌하지 않으면 생성
-    if(createCount == 0)
-    {
-      createSwitch = true;
-    }
+    // if (createCount == 0)
+    // {
+      StartCoroutine(checkCreation());
+      
+      // createSwitch = true;
+    // }
 
 
-    
+
 
 
     //충돌체크를 해야한다. => => 
@@ -173,30 +179,22 @@ public class SearchCollider : MonoBehaviour
   void rotateBox()
   {
     //돌리는 축이 한번 돌아가고나서부터 시작
-    
+
     print("sibal");
-    Quaternion v3Rotation = Quaternion.Euler(0, 30, 0);
+    // Quaternion v3Rotation = Quaternion.Euler(0, 30, 0);
+
+    // transform.RotateAround(Vector3.zero, v3Rotation * Vector3.right, 30);
+    transform.Translate(3*Vector3.up);
+
   
-    transform.RotateAround(Vector3.zero, v3Rotation*Vector3.right, 30);
+
 
     // CreateNode.Instance.createPosition = transform.position;
     // CreateNode.Instance.createRotation = transform.rotation;
 
 
     rotnum++;
-    // print(rotnum);
-
-  }
-
-  void OnCollisionEnter(Collision other)
-  {
-
-    // searchSwitch = true;
-    // print("col ");
-
-    //충돌이 일어나면 박스를 회전시킨다.
-    //충돌이 일어나면 플러스 버튼을 눌러서 넘어 왔으니깐.
-    //만드는 버튼을 끈다.
+    print(rotnum);
 
   }
 
@@ -231,8 +229,14 @@ public class SearchCollider : MonoBehaviour
   /// <param name="other">The other Collider involved in this collision.</param>
   void OnTriggerExit(Collider other)
   {
-    collisionCount--;
-    print("exi");
+    
+
+    if (other.gameObject.layer == LayerMask.NameToLayer("Box"))
+    {
+
+      collisionCount--;
+      print("exi");
+    }
   }
 
 
@@ -250,13 +254,22 @@ public class SearchCollider : MonoBehaviour
     node.transform.position = transform.position;
     createSwitch = false;
 
+    //하위 구조로 생성
+    node.transform.par
+
     createCount++;
 
     node.transform.LookAt(Camera.main.transform.position);
     node.transform.Rotate(Vector3.up, 180f);
 
-    
 
+
+  }
+
+  IEnumerator checkCreation()
+  {
+    yield return new WaitForSeconds(0.2f);
+    createSwitch = true;
   }
 
 
