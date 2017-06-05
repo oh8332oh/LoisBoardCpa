@@ -250,12 +250,18 @@ public class SearchCollider : MonoBehaviour
 
   void CreateBox()
   {
+    //노드생성
     GameObject node = Instantiate(nodePrefab);
-    node.transform.position = transform.position;
     createSwitch = false;
 
+    //만든 노드를 리스트에 기록한다.
+    // ChildList.Instance.CheckList()
+
+
+    node.transform.position = transform.position;
+
     //하위 구조로 생성
-    node.transform.par
+    // node.transform.SetParent(CreateChildNode.Instance.setTreeStructure(), true);
 
     createCount++;
 
@@ -268,7 +274,7 @@ public class SearchCollider : MonoBehaviour
 
   IEnumerator checkCreation()
   {
-    yield return new WaitForSeconds(0.2f);
+    yield return new WaitForSeconds(0.1f);
     createSwitch = true;
   }
 

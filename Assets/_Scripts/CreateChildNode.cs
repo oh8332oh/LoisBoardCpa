@@ -28,6 +28,18 @@ public class CreateChildNode : MonoBehaviour
   Vector3 parentPostion;
 
 
+   //외부에서 접근하기 위한 싱글톤 구조
+  public static CreateChildNode Instance = null;
+  private void Awake()
+  {
+    if (Instance == null)
+    {
+      Instance = this;
+    }
+  }//end of Awake()
+
+
+
   void Start()
   {
     tempLoc = transform.position;
@@ -190,6 +202,35 @@ public class CreateChildNode : MonoBehaviour
     // }
 
 
+    //+ 버튼을 누르면
+    //눌러진 노드를 부모로하는 자식으로서 만들어진다.
+    //+버튼이 눌려진 노드에 리스트가 존재한다.
+    //1. 부모에게 리스트가 있는지 확인한다.
+    //2. 없으면 리스트를 만들고
+    //3. 있으면 리스트에 추가시킨다.
+
+    //삭제할때 자식의자식은 어떻게 삭제할 것인가???
+    //1. 자식 리스트의 각자 가지고 리스틀 가지고 있는지 전부 확인하면서
+    //2. 없을 때까지 서칭한다.
+
+    //--끝--
+
+
+    //캔버스 문제 발생
+    // 두번째 전략
+    //신에서 계층구조로 만들어서 다 삭제한다.
+    //노드를 생성할 때 +누른녀석 밑으로 들어가게 만든다.
+    //나중에 지울때 그녀석 지우면 밑에 다날라감!
+
+    //두번째가 편하지만
+    // 나중에 어떻게 변할지 모른다.
+
+
+    //첫번째 방식을 사용
+    
+    ChildList.Instance.CheckList(CNode);
+
+
 
 
 
@@ -292,6 +333,12 @@ public class CreateChildNode : MonoBehaviour
     Debug.Log(start + "and" + End);
   }
 
+
+  public Transform setTreeStructure()
+  {
+    Transform parent = gameObject.transform.parent.parent;
+    return parent;
+  }
 
 
 
