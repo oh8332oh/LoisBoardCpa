@@ -19,7 +19,7 @@ public class SearchCollider : MonoBehaviour
   public float createTime = 1f;
 
   Vector3 currentPostion;
-
+  
   int count = 0;
 
   int collisionCount = 0;
@@ -28,7 +28,9 @@ public class SearchCollider : MonoBehaviour
   int createCountMax = 11;
 
 
-
+  private GameObject Line;
+  private GameObject CNode;
+  public Material linema;
 
 
 
@@ -278,7 +280,17 @@ public class SearchCollider : MonoBehaviour
     createSwitch = true;
   }
 
-
+	public void linedraw(GameObject mother, Vector3 start, Vector3 End)
+	{
+		Line = new GameObject("Line");
+		Line.transform.parent = CNode.transform;
+		Line.AddComponent<LineRenderer>();
+		Line.GetComponent<LineRenderer>().endWidth = 0.1f;
+		Line.GetComponent<LineRenderer>().startWidth = 0.1f;
+		Line.GetComponent<LineRenderer>().SetPosition(0, start);
+		Line.GetComponent<LineRenderer>().SetPosition(1, End);
+		Line.GetComponent<LineRenderer>().material = linema;
+	}
 
 
 }
