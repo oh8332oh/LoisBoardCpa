@@ -12,7 +12,6 @@ public class InterFace : MonoBehaviour {
 	private Quaternion tempRot;
 	private float Timer;
 	private float gazeTime = 1.0f;
-	public float nodecount= 0f;
 	// Use this for initialization
 	void Start () {
 		tempLoc = gameObject.transform.position;
@@ -36,6 +35,7 @@ public class InterFace : MonoBehaviour {
 			button = Instantiate (interfacePrefab,tempLoc,tempRot);
 			button.transform.parent = gameObject.transform;
 			onetime = true;	
+			print("on");
 		}
 		//gameObject.transform.RotateAround (Vector3.zero, Vector3.up, 30f*Time.deltaTime);
 	}

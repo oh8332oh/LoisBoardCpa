@@ -86,48 +86,7 @@ public class CreateChildNode : MonoBehaviour
   //포인터를 두고 클릭시
   public void PointerDown()
   {
-    //먼저 레이를 발생시켜서 검사가 되면 => 노드를 생성한다.
-
-    //1. 오른쪽 한번만 탐색해서 아무것도 없으면 노드를 생성하고 있으면 위쪽방향으로 생성한다.
-
-    //임시로 여부를 확인할 리턴값 생성
-    // bool rightSearch = 		CameraRay.Instance.SearchRight();
-
-
-    //레이를 사용한다.
-    // bool switchOnX = CameraRay.Instance.SearchPosition(startDirection);
-
-    //만약에 오른쪽에 박스가 있으면 
-    //
-    // if (CameraRay.Instance.SearchRight(startDirection))
-    // {
-    // 	//충돌이 있었다면 / 오른쪽에 박스가 있다면
-    // 	//시작할 방향 변수를 전달해야 한다.
-
-
     onetime = true;
-
-
-    //   //써칭한다.
-    //   //그 지점에서 z축을 중심으로 회전하면서 써칭한다.
-    //   //시작지점 값을 보낸다.
-    // 	//시작 지점 값은 누른 플러스 버튼의 바로 오른쪽의 충돌 지점의 위쪽이다.
-    //   if (CameraRay.Instance.SearchPosition(startDirectionY))
-    //   {
-    //     CreateChildY();
-    //   }
-    //   else
-    //   {
-    //     CreateChildY();
-    //   }
-
-    // }
-    // else
-    // {
-    //   CreateChildX();
-    // }
-
-
 
 
 
@@ -135,8 +94,6 @@ public class CreateChildNode : MonoBehaviour
     //다시 작성
     //먼저 부모 +버튼을 누른 녀석의 노드를 탐색한다.
     //부모 노드에 있는 리스트에 자식이 있는지 확인한다.
-
-
 
 
     /*--------------------------------------------------*/
@@ -163,43 +120,17 @@ public class CreateChildNode : MonoBehaviour
     //1. +버튼 누르면 => +버튼을 가지고 있는 노드의 포지션 값을 넘긴다.
     //2. 포지션 값을 받아서 정해둔 알고리즘으로 움직인다. 
 
+    //+버튼을 누르면 생성이나 마찬가지므로
+    //리스트에 담을 준비를한다.
+    ChildList.Instance.ListAdd();
+
+
     //+버튼을 눌러서 충돌체를 움직인다.
     SearchCollider.Instance.SetPosition(parentPostion);
     // SearchCollider.Instance.createSwitch = true;
     // SearchCollider.Instance.createSwitch = true;
 
 
-    // CreateNode.Instance.CreateBox();
-
-
-
-    int nodeCount = NodeList.childList.Count;
-
-    if (true)
-    {
-      //   //리스트에 아무것도 없다면 리스트에 노드를 넣고 생성한다.
-      //   //먼저 노드를 생성한다. 만든 곳에서 
-
-      // NodeList.Instance.CreateList(testnode);
-
-
-
-
-    }
-    // else
-    // {
-    //   //리스트에 들어있다면
-    //   //리스트의 숫자를 읽어서 각도로 활용한다.
-    //   //먼저 마지막의 노드를 가져온다.
-    //   GameObject testnode1 = Instantiate(Node);
-
-
-
-    //   SetPosition(testnode1, nodeCount);
-    //   NodeList.Instance.CreateList(testnode1);
-
-
-    // }
 
 
     //+ 버튼을 누르면
@@ -229,13 +160,6 @@ public class CreateChildNode : MonoBehaviour
     //첫번째 방식을 사용
     
     // ChildList.Instance.CheckList(CNode);
-
-
-
-
-
-
-
 
   }
 

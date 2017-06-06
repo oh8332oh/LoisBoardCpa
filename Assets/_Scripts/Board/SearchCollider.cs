@@ -12,7 +12,7 @@ public class SearchCollider : MonoBehaviour
   public bool createSwitch = false;
 
   //만들 노드프리펩을 넣는다
-  public GameObject nodePrefab;
+  // public GameObject nodePrefab;
 
   int rotnum;
 
@@ -60,7 +60,6 @@ public class SearchCollider : MonoBehaviour
   void Update()
   {
 
-    print(collisionCount);
     print(createSwitch);
     //currentPostion = transform.position;
     //print("addd" +transform.position);
@@ -81,47 +80,8 @@ public class SearchCollider : MonoBehaviour
     {
       rotateBox();
     }
-
-
-
-
-
-    // if (createSwitch)
-    // {
-
-    // CreateNode.Instance.createPosition = transform.position;
-    // print(currentPostion+"///"+currentTime);
-    // print(transform.position);
-    // print(CreateNode.Instance.createPosition);
-    // CreateNode.Instance.createRotation = transform.rotation;
-
-    // CreateNode.Instance.CreateBox(transform.position, transform.rotation);
-    //   CreateBox();
-
-    //   createSwitch = false;
-    // }
-
-    // if(test.isTrigger)
-    // {
-    //   print(test.isTrigger);
-    // }
-
-
-
-
   }
 
-  // IEnumerator CreateN()
-  //   {
-  //       while(createSwitch)
-  //       {
-  //          CreateNode.Instance.createPosition = transform.position;
-  //     CreateNode.Instance.createRotation = transform.rotation;
-  //     CreateNode.Instance.CreateBox();
-  //           // yield return new WaitForSeconds(createTime);
-  //           yield return null;
-  //       }
-  //   }
 
   //먼저1사분면에서의 행동만 만든다.
   //으론쪽 30도 돌아간 지점에서 위로 30도씩 돌리면 왠만한거 해결가능
@@ -139,123 +99,59 @@ public class SearchCollider : MonoBehaviour
     //충돌하면 돌아가고 충돌하지 않으면 생성
     // if (createCount == 0)
     // {
-      StartCoroutine(checkCreation());
-      
-      // createSwitch = true;
-    // }
-
-
-
-
-
-    //충돌체크를 해야한다. => => 
-    //충돌하면 이동 , 충돌 안하면 생성 / 이동x
-
-
-    // CreateNode.Instance.createPosition = transform.position;
-    // CreateNode.Instance.createRotation = transform.rotation;
-
-
-    //물체가 있는지 없는지 확인한다.
-
-
-    // createSwitch = true;
-
-
-
-
-    // if(createSwitch){
-
-    // CreateNode.Instance.CreateBox();
-    // }
-
-
-
-
-    // transform.RotateAround(Vector3.zero, Vector3.right, 30f);
-
+    StartCoroutine(checkCreation());
   }
 
   void rotateBox()
   {
     //돌리는 축이 한번 돌아가고나서부터 시작
-
-    print("sibal");
-    // Quaternion v3Rotation = Quaternion.Euler(0, 30, 0);
-
-    // transform.RotateAround(Vector3.zero, v3Rotation * Vector3.right, 30);
-    transform.Translate(3*Vector3.up);
-
-  
-
-
-    // CreateNode.Instance.createPosition = transform.position;
-    // CreateNode.Instance.createRotation = transform.rotation;
-
+    transform.Translate(3 * Vector3.up);
 
     rotnum++;
-    print(rotnum);
+    print("rotation"+rotnum);
 
   }
 
-  /// <summary>
-  /// OnTriggerEnter is called when the Collider other enters the trigger.
-  /// </summary>
-  /// <param name="other">The other Collider involved in this collision.</param>
+  //충돌이 일어날 때 트리거
   void OnTriggerEnter(Collider other)
   {
-
-
+    //부딪친 물체의 레이아웃이 box이면
     if (other.gameObject.layer == LayerMask.NameToLayer("Box"))
     {
+      //충돌 카운트를 올린다.
       collisionCount++;
-      print("ent");
-
-      // createSwitch = false;
-      // searchSwitch = true;
-      // rotateBox();
-
-      // print(createSwitch);
-
     }
-
-
-
   }
-
-  /// <summary>
-  /// OnTriggerExit is called when the Collider other has stopped touching the trigger.
-  /// </summary>
-  /// <param name="other">The other Collider involved in this collision.</param>
+  //충돌상태에서 벗어날 때 트리거
   void OnTriggerExit(Collider other)
   {
-    
-
+    //충돌상태에서 벗어난 물체의 레이아웃이 box이면
     if (other.gameObject.layer == LayerMask.NameToLayer("Box"))
     {
-
       collisionCount--;
       print("exi");
     }
   }
 
-
-  public void CreateOn()
-  {
-    // createSwitch = true;
-  }
-
-
   //충돌했는지 ??
-
   void CreateBox()
   {
-    //노드생성
-    GameObject node = Instantiate(nodePrefab);
     createSwitch = false;
+    //노드생성
+    //리스트에서 가져오는게 자연스러울듯?
+
+    //리스트에서 마지막에 있는 노드를 가져오기위해 
+    //길이 변수를 불러올 때마다 만든다.
+
+    int listLength = ChildList.Instance.childList.Count;
+    print("length" + listLength);
+    //리스트에서 불러와서 새로 담는다.
+    GameObject node = ChildList.Instance.childList[listLength - 1];
+
+    // GameObject node = Instantiate(nodePrefab);
 
     //만든 노드를 리스트에 기록한다.
-    // ChildList.Instance.CheckList()
+    // ChildList.Instance.CheckList(node);
 
 
     node.transform.position = transform.position;
@@ -272,6 +168,7 @@ public class SearchCollider : MonoBehaviour
 
   }
 
+  //코루틴 구문.
   IEnumerator checkCreation()
   {
     yield return new WaitForSeconds(0.1f);
