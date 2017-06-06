@@ -89,13 +89,10 @@ public class CreateChildNode : MonoBehaviour
     onetime = true;
 
 
-
     /*--------------------------------------------------*/
     //다시 작성
     //먼저 부모 +버튼을 누른 녀석의 노드를 탐색한다.
     //부모 노드에 있는 리스트에 자식이 있는지 확인한다.
-
-
     /*--------------------------------------------------*/
 
 
@@ -119,7 +116,6 @@ public class CreateChildNode : MonoBehaviour
 
     //1. +버튼 누르면 => +버튼을 가지고 있는 노드의 포지션 값을 넘긴다.
     //2. 포지션 값을 받아서 정해둔 알고리즘으로 움직인다. 
-
 
     //+버튼을 누르면 생성이나 마찬가지므로
     //리스트에 담을 준비를한다.
@@ -146,6 +142,7 @@ public class CreateChildNode : MonoBehaviour
     //2. 없을 때까지 서칭한다.
 
     //--끝--
+    
 
 
     //캔버스 문제 발생
@@ -167,8 +164,6 @@ public class CreateChildNode : MonoBehaviour
   //만드는 역할만 수행할 수 있게 한다. 
   public GameObject CreateChildX()
   {
-
-
     /*
 		tempLoc.x = Mathf.Sin(Mathf.Deg2Rad*30f*GlobalV.number)*10f;
 		tempLoc.y = 0;

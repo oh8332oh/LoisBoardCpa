@@ -150,6 +150,7 @@ public class SearchCollider : MonoBehaviour
     GameObject nodetest = Instantiate(nodePrefab);
     ChildList.Instance.ListAdd(nodetest);
     
+    
     int listLength = ChildList.Instance.childList.Count;
     GameObject node = ChildList.Instance.childList[listLength - 1];
     //만든 노드를 리스트에 기록한다.
