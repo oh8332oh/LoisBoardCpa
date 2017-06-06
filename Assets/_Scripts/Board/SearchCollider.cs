@@ -12,7 +12,7 @@ public class SearchCollider : MonoBehaviour
   public bool createSwitch = false;
 
   //만들 노드프리펩을 넣는다
-  // public GameObject nodePrefab;
+  public GameObject nodePrefab;
 
   int rotnum;
 
@@ -143,13 +143,15 @@ public class SearchCollider : MonoBehaviour
     //리스트에서 마지막에 있는 노드를 가져오기위해 
     //길이 변수를 불러올 때마다 만든다.
 
-    int listLength = ChildList.Instance.childList.Count;
-    print("length" + listLength);
+    // print("length" + listLength);
     //리스트에서 불러와서 새로 담는다.
+    // node.SetActive(true);
+
+    GameObject nodetest = Instantiate(nodePrefab);
+    ChildList.Instance.ListAdd(nodetest);
+    
+    int listLength = ChildList.Instance.childList.Count;
     GameObject node = ChildList.Instance.childList[listLength - 1];
-
-    // GameObject node = Instantiate(nodePrefab);
-
     //만든 노드를 리스트에 기록한다.
     // ChildList.Instance.CheckList(node);
 

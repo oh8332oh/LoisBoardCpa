@@ -21,16 +21,19 @@ public class ChildList : MonoBehaviour
 
   //리스트에 노드를 추가시킨다. 
   //오버라이드를 사용
-  // public void ListAdd(GameObject node)
-  // {
-  //   childList.Add(node);
-  // }
-
-  public void ListAdd()
+  public void ListAdd(GameObject node)
   {
-    GameObject node = Instantiate(nodePrefab);
     childList.Add(node);
   }
+
+  // public void ListAdd()
+  // {
+    
+  //   GameObject node = Instantiate(nodePrefab);
+  //   node.SetActive(false);
+  //   // node.transform.position = 
+  //   childList.Add(node);
+  // }
 
   //+버튼 가지고 있는 노드에 자손이 있는지 확인한다.
   //자손이

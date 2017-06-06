@@ -21,6 +21,7 @@ public class InterFace : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		
 
 
 		if (gazedAt) {
@@ -38,6 +39,8 @@ public class InterFace : MonoBehaviour {
 			print("on");
 		}
 		//gameObject.transform.RotateAround (Vector3.zero, Vector3.up, 30f*Time.deltaTime);
+	
+	
 	}
 
 	public void PointerEnter()
@@ -50,6 +53,10 @@ public class InterFace : MonoBehaviour {
 		
 		gazedAt = false;
 		onetime = false;
+
+		print(gazedAt);
+	print(onetime);
+
 		Destroy (button);
 		Timer = 0f;
 	}

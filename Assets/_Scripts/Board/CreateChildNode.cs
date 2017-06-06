@@ -72,7 +72,7 @@ public class CreateChildNode : MonoBehaviour
 
   public void PointEnter()
   {
-    // gazedAt = true;
+    gazedAt = true;
   }
 
   public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
@@ -120,9 +120,10 @@ public class CreateChildNode : MonoBehaviour
     //1. +버튼 누르면 => +버튼을 가지고 있는 노드의 포지션 값을 넘긴다.
     //2. 포지션 값을 받아서 정해둔 알고리즘으로 움직인다. 
 
+
     //+버튼을 누르면 생성이나 마찬가지므로
     //리스트에 담을 준비를한다.
-    ChildList.Instance.ListAdd();
+    // ChildList.Instance.ListAdd();
 
 
     //+버튼을 눌러서 충돌체를 움직인다.
