@@ -77,6 +77,29 @@ public class DeleteNode : MonoBehaviour
   {
     onetime = true;
 
+
+		//삭제하는법
+		//먼저 마이너스버튼에 달려 있는 노드를 탐색한다
+		//그 노드에 리스트가 있는지 찾아본다.
+		//리스트안에 있
+
+		//1. 노드에 붙어 있는 리스트 확인한다.
+
+		// List<GameObject> test = ChildList.Instance.childList;
+		// print(test);
+
+    for(int i = 0 ; i < ChildList.Instance.childList.Count; i++)
+    {
+      if(ChildList.Instance.childList[i] != null)
+      {
+        Destroy(ChildList.Instance.childList[i]);
+      }
+    }
+
+
+
+		
+
   }
 
 

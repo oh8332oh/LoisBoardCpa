@@ -169,7 +169,7 @@ public class SearchCollider : MonoBehaviour
 
 
 
-  }
+  } 
 
   //코루틴 구문.
   IEnumerator checkCreation()
