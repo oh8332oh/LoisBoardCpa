@@ -22,11 +22,15 @@ public class Right : MonoBehaviour {
 			ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
 			//bar.transform.RotateAround (Camera.main.transform.position, Vector3.up, -0.5f);
 		}
+
+		Camera.main.transform.LookAt(Vector3.zero);
 	}
 
 	public void PointerEnter()
 	{   
 		gazedAt = true;
+		// Camera.main.transform.LookAt(Vector3.zero);
+		
 	}	
 
 	public void PointerExit()

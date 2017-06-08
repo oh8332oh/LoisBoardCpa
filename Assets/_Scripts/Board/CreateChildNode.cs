@@ -72,7 +72,7 @@ public class CreateChildNode : MonoBehaviour
 
   public void PointEnter()
   {
-    gazedAt = true;
+    // gazedAt = true;
   }
 
   public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
@@ -119,11 +119,18 @@ public class CreateChildNode : MonoBehaviour
 
     //+버튼을 누르면 생성이나 마찬가지므로
     //리스트에 담을 준비를한다.
-    // ChildList.Instance.ListAdd();
 
+    
+
+    SearchCollider.Instance.currentManager = transform.parent.parent.GetComponent<ChildListManager>();
 
     //+버튼을 눌러서 충돌체를 움직인다.
     SearchCollider.Instance.SetPosition(parentPostion);
+    
+
+
+
+
     // SearchCollider.Instance.createSwitch = true;
     // SearchCollider.Instance.createSwitch = true;
 
@@ -259,6 +266,14 @@ public class CreateChildNode : MonoBehaviour
     Transform parent = gameObject.transform.parent.parent;
     return parent;
   }
+
+
+  //+버튼을 누르면
+  //매니저를 만들어서
+  //리스트를 관리한다.
+  //+버튼에 붙은 부모 노드에 접근해서
+  //리스트를 컨트롤한다.
+
 
 
 
