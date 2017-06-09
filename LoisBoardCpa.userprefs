@@ -1,37 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Board\CreateChildNode.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Board\SearchCollider.cs">
     <Files>
       <File FileName="Assets\_Scripts\Board\Right.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Scripts\Board\CreateChildNode.cs" Line="9" Column="3" />
-      <File FileName="Assets\_Scripts\Board\movbar.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Board\CreateChildNode.cs" Line="223" Column="1" />
+      <File FileName="Assets\_Scripts\Board\movbar.cs" Line="15" Column="14" />
       <File FileName="Assets\_Scripts\Board\InterFace.cs" Line="1" Column="1" />
       <File FileName="Assets\_Scripts\Main Scenes\Fade.cs" Line="1" Column="1" />
       <File FileName="Assets\_Scripts\Main Scenes\Save.cs" Line="1" Column="1" />
       <File FileName="Assets\_Scripts\Board\Node.cs" Line="1" Column="1" />
-      <File FileName="Assets\_Scripts\Board\CameraRay.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Board\DeleteNode.cs" Line="71" Column="21" />
+      <File FileName="Assets\_Scripts\Board\SearchCollider.cs" Line="175" Column="25" />
+      <File FileName="Assets\_Scripts\Main Scenes\NewBoard.cs" Line="30" Column="68" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="LoisBoardCpa" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="_Scripts" expanded="True">
-                <Node name="Board" expanded="True">
-                  <Node name="CreateChildNode.cs" selected="True" />
-                </Node>
-                <Node name="Main Scenes" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="LoisBoardCpa" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

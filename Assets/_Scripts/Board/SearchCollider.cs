@@ -158,7 +158,7 @@ public class SearchCollider : MonoBehaviour
     //만든 노드를 리스트에 기록한다.
     // ChildList.Instance.CheckList(node);
 
-
+	
     node.transform.position = transform.position;
 
     //하위 구조로 생성
@@ -169,8 +169,13 @@ public class SearchCollider : MonoBehaviour
     node.transform.LookAt(Camera.main.transform.position);
     node.transform.Rotate(Vector3.up, 180f);
 
-
-
+	GameObject poz = new GameObject();
+	poz.transform.position = node.transform.position;
+	poz.transform.position -= node.transform.worldToLocalMatrix.MultiplyVector (transform.right)*1.5f;
+	poz.transform.LookAt(Camera.main.transform.position);
+	poz.transform.Rotate(Vector3.up, 180f);
+		//linedraw(,,);
+	Destroy(poz);
   } 
 
   //코루틴 구문.
