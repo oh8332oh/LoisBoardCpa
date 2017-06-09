@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26133657, g: 0.26247734, b: 0.24570712, a: 1}
+  m_IndirectSpecularColor: {r: 0.26119357, g: 0.26258448, b: 0.24556533, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -154,6 +154,11 @@ Prefab:
     - target: {fileID: 4695713097739824, guid: 9a2007561b92bc34182956be2e9ed4b4, type: 2}
       propertyPath: m_LocalPosition.z
       value: -1.414
+      objectReference: {fileID: 0}
+    - target: {fileID: 114038277173499876, guid: 9a2007561b92bc34182956be2e9ed4b4,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PointerEnter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a2007561b92bc34182956be2e9ed4b4, type: 2}
@@ -1026,6 +1031,7 @@ MonoBehaviour:
   nodePrefab: {fileID: 1251718320637418, guid: a8625d8e36ab2ec46a9ef2d5f38738df, type: 2}
   createTime: 1
   currentManager: {fileID: 0}
+  linema: {fileID: 0}
 --- !u!54 &2058634827
 Rigidbody:
   m_ObjectHideFlags: 0
