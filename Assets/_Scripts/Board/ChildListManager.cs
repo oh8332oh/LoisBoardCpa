@@ -9,7 +9,6 @@ public class ChildListManager : MonoBehaviour
 
   public List<GameObject> childList;
 
-
   /// <summary>
   /// Start is called on the frame when a script is enabled just before
   /// any of the Update methods is called the first time.
@@ -32,8 +31,9 @@ public class ChildListManager : MonoBehaviour
     GameObject node = Instantiate(nodePrefab);
     // node.SetActive(false);
     // node.transform.position = 
-    
+
     childList.Add(node);
+
     print(childList);
   }
 

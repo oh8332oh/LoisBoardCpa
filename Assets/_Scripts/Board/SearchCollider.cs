@@ -34,12 +34,12 @@ public class SearchCollider : MonoBehaviour
   //+버튼을 누르면
   //+버튼의 부모노드의 리스트를 받아온다.
   public ChildListManager currentManager;
-
+  public Vector3 Posz;
 
   private GameObject Line;
   private GameObject CNode;
   public Material linema;
-
+	public GameObject Nd;
 
 
   //외부에서 접근하기 위한 싱글톤 구조
@@ -176,6 +176,7 @@ public class SearchCollider : MonoBehaviour
 	
     node.transform.position = transform.position;
 
+
     //하위 구조로 생성
     // node.transform.SetParent(CreateChildNode.Instance.setTreeStructure(), true);
 
@@ -184,13 +185,9 @@ public class SearchCollider : MonoBehaviour
     node.transform.LookAt(Camera.main.transform.position);
     node.transform.Rotate(Vector3.up, 180f);
 
-	GameObject poz = new GameObject();
-	poz.transform.position = node.transform.position;
-	poz.transform.position -= node.transform.worldToLocalMatrix.MultiplyVector (transform.right)*1.5f;
-	poz.transform.LookAt(Camera.main.transform.position);
-	poz.transform.Rotate(Vector3.up, 180f);
-		//linedraw(,,);
-	Destroy(poz);
+		Nd = node;
+		Debug.Log ("쉣더퍽" + Posz);
+		
   } 
 
   //코루틴 구문.
@@ -199,18 +196,4 @@ public class SearchCollider : MonoBehaviour
     yield return new WaitForSeconds(0.1f);
     createSwitch = true;
   }
-
-	public void linedraw(GameObject mother, Vector3 start, Vector3 End)
-	{
-		Line = new GameObject("Line");
-		Line.transform.parent = CNode.transform;
-		Line.AddComponent<LineRenderer>();
-		Line.GetComponent<LineRenderer>().endWidth = 0.1f;
-		Line.GetComponent<LineRenderer>().startWidth = 0.1f;
-		Line.GetComponent<LineRenderer>().SetPosition(0, start);
-		Line.GetComponent<LineRenderer>().SetPosition(1, End);
-		Line.GetComponent<LineRenderer>().material = linema;
-	}
-
-
 }

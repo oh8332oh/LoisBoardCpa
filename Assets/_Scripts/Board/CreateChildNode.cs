@@ -125,11 +125,21 @@ public class CreateChildNode : MonoBehaviour
     SearchCollider.Instance.currentManager = transform.parent.parent.GetComponent<ChildListManager>();
 
     //+버튼을 눌러서 충돌체를 움직인다.
+	
     SearchCollider.Instance.SetPosition(parentPostion);
-    
+	GameObject tempC;
+//	tempC = this.transform.parent.transform.FindChild("forChild").gameObject;
+	tempC = this.transform.parent.parent.gameObject.transform.FindChild ("forChild").gameObject;
+	Vector3 StartP = tempC.transform.position;
+	Vector3 EndP;
+	GameObject temp;
+	temp = SearchCollider.Instance.Nd;
+	EndP = temp.transform.FindChild ("forParent").gameObject.transform.position;
+	linedraw (temp,StartP, EndP);
+	Debug.Log (StartP + "  " + EndP);
 
 
-
+			
 
     // SearchCollider.Instance.createSwitch = true;
     // SearchCollider.Instance.createSwitch = true;
@@ -171,46 +181,9 @@ public class CreateChildNode : MonoBehaviour
   //만드는 역할만 수행할 수 있게 한다. 
   public GameObject CreateChildX()
   {
-    /*
-		tempLoc.x = Mathf.Sin(Mathf.Deg2Rad*30f*GlobalV.number)*10f;
-		tempLoc.y = 0;
-		tempLoc.z = Mathf.Cos (Mathf.Deg2Rad*30f * GlobalV.number)*10f;
-		*/
-
-    //tempLoc += new Vector3 (5f, 0f, -5 * Mathf.Tan(Mathf.Deg2Rad * 15f));
-    //*5/Mathf.Cos(Mathf.Deg2Rad*15f)
-    //CNode.transform.TransformDirection(new Vector3(5,0,-5*Mathf.Tan(Mathf.Deg2Rad * 15f)));
-    //CNode.transform.Translate(new Vector3(3.4f,0,-3.4f*Mathf.Tan(Mathf.Deg2Rad * 15f)),Space.Self);
-    //CNode.transform.Rotate (new Vector3 (0, 30, 0));
-
-    //int a = 1;
-    //GlobalV.a++;
-    //if(GlobalV.nodeLoc[a,GlobalV.b-1] == 1)
-    //{
     CNode = Instantiate(Node);
-    //CNode.transform.parent = gameObject.transform.parent.parent;
-    // Vector3 a = transform.position - new Vector3(-1.7f,1.5f-3f*nodecount,0);
-    // Vector3 b = transform.parent.position;
-
-
-    //위치 보정
-    // CNode.transform.Translate(new Vector3(-1.7f,1.5f-3f*nodecount,0));
-
     CNode.transform.position = transform.parent.position;
     CNode.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
-    // startDirectionY = CNode.transform.position;
-    // CNode.transform.LookAt(Camera.main.transform.position);
-    // CNode.transform.Rotate(Vector3.up, 180f);
-    // CNode.name = "Node" + Loc.x + ", " + Loc.y;
-
-    // GameObject poz = new GameObject ();
-    // poz.transform.position = transform.parent.position + new Vector3 (-1.5f, 0f, 0f);;
-    // poz.transform.RotateAround(Vector3.zero, Vector3.up, 30f);
-    // poz.transform.LookAt(Camera.main.transform.position);
-    // poz.transform.Rotate(Vector3.up, 180f);
-    // linedraw (CNode,transform.position, poz.transform.position);
-    // Destroy (poz);
-
     return CNode;
   }
 
@@ -227,38 +200,20 @@ public class CreateChildNode : MonoBehaviour
     CNode.transform.LookAt(Camera.main.transform.position);
     //180도 돌려서 정면을 바라보게 한다.
     CNode.transform.Rotate(Vector3.up, 180f);
-    GameObject poz = new GameObject();
-    poz.transform.position = CameraRay.Instance.hitLocation;
-    poz.transform.position -= new Vector3(1.5f, 0, 0);
-    poz.transform.RotateAround(Vector3.zero, Vector3.right, -30f);
-    poz.transform.LookAt(Camera.main.transform.position);
-    poz.transform.Rotate(Vector3.up, 180f);
-    linedraw(CNode, transform.position, poz.transform.position);
-    Destroy(poz);
   }
 
   public void linedraw(GameObject mother, Vector3 start, Vector3 End)
   {
     Line = new GameObject("Line");
-    Line.transform.parent = CNode.transform;
+	Line.transform.parent = mother.transform;
     Line.AddComponent<LineRenderer>();
     Line.GetComponent<LineRenderer>().endWidth = 0.1f;
     Line.GetComponent<LineRenderer>().startWidth = 0.1f;
-    //Line.GetComponent<LineRenderer> ().SetColors(color ,color);
     Line.GetComponent<LineRenderer>().SetPosition(0, start);
     Line.GetComponent<LineRenderer>().SetPosition(1, End);
-    Line.GetComponent<LineRenderer>().material = linema;
-
-
-    /*
-		lineRenderer = Line.AddComponent<LineRenderer> ();
-		lineRenderer.material = new Material (Shader.Find ("Particles/Additicve"));
-		lineRenderer.SetColors (Color.grey, Color.grey);
-		lineRenderer.SetWidth (0.2f, 0.2f);
-		lineRenderer.SetVertexCount (2);
-		*/
-    Debug.Log(start + "and" + End);
+	Line.GetComponent<LineRenderer> ().material = linema;
   }
+
 
 
   public Transform setTreeStructure()
