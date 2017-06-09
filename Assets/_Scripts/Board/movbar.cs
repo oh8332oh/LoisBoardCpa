@@ -48,6 +48,10 @@ public class movbar : MonoBehaviour {
 		mov = true;
 		Vector3 temp = movingBar.transform.eulerAngles;
 		Vector3 temp1 = Camera.main.transform.eulerAngles;
+<<<<<<< HEAD
 		movingBar.transform.RotateAround(Camera.main.transform.position, Vector3.up, -(temp.y-temp1.y));// 의미없는듯 하다 (사실 제가 적은건데 기억이..)
+=======
+		movingBar.transform.RotateAround(Camera.main.transform.position, Vector3.up, -(temp.y-temp1.y));  //의미없는듯 하다 (사실 제가 적은건데 기억이..)
+>>>>>>> a7540dda478a61836cbfd07fc60a48beda095a06
 	}
 }
