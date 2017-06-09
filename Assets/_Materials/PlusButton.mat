@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PlusButton
-  m_Shader: {fileID: 10751, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -38,7 +38,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1f290eda9d4d9e4468395e37e7fe3138, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0474c8f6f28db49fb9e16c64635be398, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

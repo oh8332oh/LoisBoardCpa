@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//충돌을 관리하는 스크립트
+//한개만 존재한다.
+//스태틱으로 메모리에 올린다.
 public class SearchCollider : MonoBehaviour
 {
 
@@ -26,6 +30,10 @@ public class SearchCollider : MonoBehaviour
 
   int createCount;
   int createCountMax = 11;
+
+  //+버튼을 누르면
+  //+버튼의 부모노드의 리스트를 받아온다.
+  public ChildListManager currentManager;
 
 
   private GameObject Line;
@@ -74,7 +82,7 @@ public class SearchCollider : MonoBehaviour
 
     if (collisionCount == 0 && createSwitch)
     {
-
+      createSwitch = false;
       CreateBox();
 
     }
@@ -95,12 +103,8 @@ public class SearchCollider : MonoBehaviour
     transform.position = nodeDirection;
     transform.RotateAround(Vector3.zero, Vector3.up, 30);
 
-
-    //움직이고 나서
-    //서칭한다.
-    //충돌하면 돌아가고 충돌하지 않으면 생성
-    // if (createCount == 0)
-    // {
+    //충돌을 빠쟈나오고나서
+    //코루틴이 실행되게 한다.
     StartCoroutine(checkCreation());
   }
 
@@ -138,7 +142,7 @@ public class SearchCollider : MonoBehaviour
   //충돌했는지 ??
   void CreateBox()
   {
-    createSwitch = false;
+    
     //노드생성
     //리스트에서 가져오는게 자연스러울듯?
 
@@ -149,12 +153,23 @@ public class SearchCollider : MonoBehaviour
     //리스트에서 불러와서 새로 담는다.
     // node.SetActive(true);
 
-    GameObject nodetest = Instantiate(nodePrefab);
-    ChildList.Instance.ListAdd(nodetest);
+    // GameObject nodetest = Instantiate(nodePrefab);
+    // ChildList.Instance.ListAdd(nodetest);
+
+    //현재 리스트 매니저있는지 확인??
+
+
+    //+버튼의 트랜스폼을 받아온다.
     
+    // currentManager 
+    // ChildList.Instance.ListAdd();
+
+    currentManager.ListAdd();
+
+    int listLength = currentManager.childList.Count;
+    GameObject node = currentManager.childList[listLength - 1];
+
     
-    int listLength = ChildList.Instance.childList.Count;
-    GameObject node = ChildList.Instance.childList[listLength - 1];
     //만든 노드를 리스트에 기록한다.
     // ChildList.Instance.CheckList(node);
 

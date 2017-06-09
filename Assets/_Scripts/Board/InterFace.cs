@@ -11,7 +11,7 @@ public class InterFace : MonoBehaviour {
 	private Vector3 tempLoc;
 	private Quaternion tempRot;
 	private float Timer;
-	private float gazeTime = 1.0f;
+	private float gazeTime = 0.0f;
 	// Use this for initialization
 	void Start () {
 		tempLoc = gameObject.transform.position;
@@ -57,6 +57,7 @@ public class InterFace : MonoBehaviour {
 		print(gazedAt);
 	print(onetime);
 
+		// gameObject.SetActive(button);
 		Destroy (button);
 		Timer = 0f;
 	}

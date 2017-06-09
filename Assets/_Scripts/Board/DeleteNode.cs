@@ -20,14 +20,14 @@ public class DeleteNode : MonoBehaviour
 
 
    //외부에서 접근하기 위한 싱글톤 구조
-  public static DeleteNode Instance = null;
-  private void Awake()
-  {
-    if (Instance == null)
-    {
-      Instance = this;
-    }
-  }//end of Awake()
+  // public static DeleteNode Instance = null;
+  // private void Awake()
+  // {
+  //   if (Instance == null)
+  //   {
+  //     Instance = this;
+  //   }
+  // }//end of Awake()
 
   void Start()
   {
@@ -84,15 +84,30 @@ public class DeleteNode : MonoBehaviour
 		//리스트안에 있
 
 		//1. 노드에 붙어 있는 리스트 확인한다.
+    //부모에 있는 리스트를 확인한다.
+    ChildListManager currentManager = transform.parent.parent.GetComponent<ChildListManager>();
 
 		// List<GameObject> test = ChildList.Instance.childList;
 		// print(test);
 
-    for(int i = 0 ; i < ChildList.Instance.childList.Count; i++)
+
+    //부모노드에 있는 리스트를 확인한다. 순차로
+    for(int i = 0 ; i < currentManager.childList.Count; i++)
     {
-      if(ChildList.Instance.childList[i] != null)
+      //리스트안에 있으면 
+      if(currentManager.childList[i] != null)
       {
-        Destroy(ChildList.Instance.childList[i]);
+        //각각의 안의 요소의 딜리트 버튼에 접근할까?
+        ChildListManager innerManager = currentManager.childList[i].transform.GetComponent<ChildListManager>();
+        for(int j = 0; j<innerManager.childList.Count ; j ++)
+        {
+          Destroy(innerManager.childList[j]);
+        }
+        
+
+        Destroy(currentManager.childList[i]);
+        
+        Destroy(gameObject.transform.parent.parent);
       }
     }
 

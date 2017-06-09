@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 613c4ec115b9ed346a2e3fa851d9a0ea
+timeCreated: 1496295976
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: YDIYGO350
+  fontNames:
+  - YDIYGO350
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
