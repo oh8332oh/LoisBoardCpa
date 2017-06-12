@@ -13,3 +13,6 @@ Builds/
 /*.userprefs
 /*.pidb
 /*.booproj
+Temp/
+/
+*.apk
