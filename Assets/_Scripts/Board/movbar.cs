@@ -43,12 +43,17 @@ public class movbar : MonoBehaviour {
 		if(left||right)
 		{
 			timer += Time.deltaTime;
-			if(timer>0.05f){
-				movingBar.transform.RotateAround(CameraOb.Cam.transform.position, Vector3.up, angle1*0.99f); //카메라가 회전하는 델타값을 무빙바에 주어 회전을 같이 하게한다.
+			if(timer>0.02f){
+				movingBar.transform.RotateAround(CameraOb.Cam.transform.position, Vector3.up, angle1); //카메라가 회전하는 델타값을 무빙바에 주어 회전을 같이 하게한다.
 			}
 		}
+		if (angle1 > 180f) {
+			angle1 -= 360f;
+		}
 
-
+		if (angle1 < -180f) {
+			angle1 += 360f;
+		}
 		LastEuler = Camera.main.transform.eulerAngles.y;
 		Vector3 movtemp = Camera.main.transform.eulerAngles;
 		LastEuler1 = CameraOb.Cam.transform.eulerAngles.y;
