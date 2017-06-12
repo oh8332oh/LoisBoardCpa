@@ -41,6 +41,11 @@ public class SearchCollider : MonoBehaviour
   public Material linema;
 	public GameObject Nd;
 
+  //라인렌더를 위한 좌표 저장값
+  public Vector3 lineStartPosition;
+
+
+
 
   //외부에서 접근하기 위한 싱글톤 구조
   public static SearchCollider Instance = null;
@@ -54,7 +59,6 @@ public class SearchCollider : MonoBehaviour
 
 
 
-  Collider test;
 
   // Use this for initialization
   void Start()
@@ -139,7 +143,7 @@ public class SearchCollider : MonoBehaviour
     }
   }
 
-  //충돌했는지 ??
+  //박스를 만든다.
   void CreateBox()
   {
     
@@ -184,9 +188,39 @@ public class SearchCollider : MonoBehaviour
 
     node.transform.LookAt(Camera.main.transform.position);
     node.transform.Rotate(Vector3.up, 180f);
-		Nd = node;
+		// Nd = node;
+
+    //박스를 만들고 나서 선을 추가 해야 한다.
+    //+ 버튼 누르면 + 버튼 누른 곳에서 좌표가 넘어와서
+    //여기서 받고
+    //여기서 값 받고 바로 그린다.
+
+    Vector3 endPosition = node.transform.FindChild("forParent").gameObject.transform.position;
+
+    linedraw(node,lineStartPosition, endPosition);
+
+
+
 		
   } 
+
+
+  public void linedraw(GameObject mother, Vector3 start, Vector3 End)
+    {
+        Line = new GameObject("Line");
+        Line.transform.parent = mother.transform;
+        Line.AddComponent<LineRenderer>();
+        Line.GetComponent<LineRenderer>().endWidth = 0.1f;
+        Line.GetComponent<LineRenderer>().startWidth = 0.1f;
+        Line.GetComponent<LineRenderer>().SetPosition(0, start);
+        Line.GetComponent<LineRenderer>().SetPosition(1, End);
+        Line.GetComponent<LineRenderer>().material = linema;
+    }
+
+
+
+
+
 
   //코루틴 구문.
   IEnumerator checkCreation()
