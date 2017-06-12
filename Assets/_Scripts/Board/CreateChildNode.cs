@@ -128,8 +128,8 @@ public class CreateChildNode : MonoBehaviour
 	
     SearchCollider.Instance.SetPosition(parentPostion);
 	GameObject tempC;
-//	tempC = this.transform.parent.transform.FindChild("forChild").gameObject;
-	tempC = this.transform.parent.parent.gameObject.transform.FindChild ("forChild").gameObject;
+
+	tempC = this.transform.root.gameObject.transform.FindChild ("forChild").gameObject;
 	Vector3 StartP = tempC.transform.position;
 	Vector3 EndP;
 	GameObject temp;
@@ -197,7 +197,7 @@ public class CreateChildNode : MonoBehaviour
     CNode.transform.RotateAround(Vector3.zero, Vector3.right, -30f);
 
     //카메라를 향하게 한다.
-    CNode.transform.LookAt(Camera.main.transform.position);
+    //CNode.transform.LookAt(Camera.main.transform.position);
     //180도 돌려서 정면을 바라보게 한다.
     CNode.transform.Rotate(Vector3.up, 180f);
   }

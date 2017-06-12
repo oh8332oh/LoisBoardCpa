@@ -17,7 +17,12 @@ public class ChildListManager : MonoBehaviour
   {
     childList  = new List<GameObject>(); 
   }
-
+	/*
+	void update(){
+		for (int i = 0; i < childList.Count; i++) {
+			childList [i].transform.LookAt (Camera.main.transform.position);
+		}
+	}*/
   //리스트에 노드를 추가시킨다. 
   //오버라이드를 사용
   public void ListAdd(GameObject node)

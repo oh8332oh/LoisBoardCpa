@@ -5,7 +5,8 @@ using UnityEngine;
 public class movbar : MonoBehaviour {
 
 
-	public	GameObject movingBar;
+	public GameObject movingBar;
+
 	//CNode.transform.RotateAround(new Vector3(0f,0f,0f), Vector3.up, 30f);
 	private bool mov;
 	private float LastEuler;  // Last가 들어가는 것은 움직임에 대한 델타값을 얻기위함
@@ -26,6 +27,8 @@ public class movbar : MonoBehaviour {
 		Lastpos = Camera.main.transform.position;
 		if (mov) {
 			movingBar.transform.RotateAround(Camera.main.transform.position, Vector3.up, angle); //카메라가 회전하는 델타값을 무빙바에 주어 회전을 같이 하게한다.
+			this.transform.LookAt (Camera.main.transform);
+			this.transform.Rotate(Vector3.up, 180f);
 		}
 
 		LastEuler = Camera.main.transform.eulerAngles.y;
@@ -39,6 +42,17 @@ public class movbar : MonoBehaviour {
 	}
 
 
+	public void lef(){
+		this.transform.parent= CameraOb.Cam.transform;
+		//this.transform.RotateAround (Vector3.zero, Vector3.up, -1f);
+	}
+	public void Closed(){
+		this.transform.parent = null;
+	}
+	public  void rig(){
+		this.transform.RotateAround (Vector3.zero, Vector3.up, 1f);
+	}
+
 
 	public void stop(){
 		mov = false;
@@ -48,6 +62,6 @@ public class movbar : MonoBehaviour {
 		mov = true;
 		Vector3 temp = movingBar.transform.eulerAngles;
 		Vector3 temp1 = Camera.main.transform.eulerAngles;
-		movingBar.transform.RotateAround(Camera.main.transform.position, Vector3.up, -(temp.y-temp1.y));// 의미없는듯 하다 (사실 제가 적은건데 기억이..)
+		movingBar.transform.RotateAround(Camera.main.transform.position, Vector3.up, (-(temp.y-temp1.y)));// 의미없는듯 하다 (사실 제가 적은건데 기억이..)
 	}
 }

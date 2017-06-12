@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/_Scenes/MainScene.unity
-    guid: fa83e24fad4c21e46b907046ee6b5619
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/_Scenes/LoisBoardCpa.unity
-    guid: 00000000000000000000000000000000
+    guid: 6d5a6c735256c2947bdbcc75e01ae2f2

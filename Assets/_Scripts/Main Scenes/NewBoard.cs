@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-using UnityEditor;
+
 public class NewBoard : MonoBehaviour {
 	
 	public static Scene MindMap; //의미없음

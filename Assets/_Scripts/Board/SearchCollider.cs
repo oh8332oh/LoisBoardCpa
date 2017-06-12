@@ -184,9 +184,7 @@ public class SearchCollider : MonoBehaviour
 
     node.transform.LookAt(Camera.main.transform.position);
     node.transform.Rotate(Vector3.up, 180f);
-
 		Nd = node;
-		Debug.Log ("쉣더퍽" + Posz);
 		
   } 
 

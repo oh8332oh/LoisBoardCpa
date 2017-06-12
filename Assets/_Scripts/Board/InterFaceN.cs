@@ -37,7 +37,6 @@ public class InterFaceN : MonoBehaviour {
 	public void PointerEnter()
 	{   
 		gazedAt = true;
-		Debug.Log (GlobalV.nodeLoc [0, 10]);
 	}	
 
 	public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
