@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class CreateChildNode : MonoBehaviour
 {
+<<<<<<< HEAD
     public Material linema;
     public Vector3 arrowInput1;
     public Vector3 arrowInput2;
@@ -31,6 +32,33 @@ public class CreateChildNode : MonoBehaviour
     //외부에서 접근하기 위한 싱글톤 구조
     public static CreateChildNode Instance = null;
     private void Awake()
+=======
+  public Material linema;
+  public Vector3 arrowInput1;
+  public Vector3 arrowInput2;
+  public GameObject Node;
+  public GameObject CNode;
+  private Vector3 tempLoc;
+  private Vector2 Loc;
+  private bool gazedAt;
+  private bool onetime;
+  private Quaternion tempRot;
+  private float Timer;
+  private float gazeTime = 1f;
+  private float nodecount;
+  public static Vector3 startDirectionY;
+  public LineRenderer lineRenderer;
+  private GameObject Line;
+  //부딪쳤을 때 부딪친 노드를 바라보는 방향 벡터
+  Vector3 startDirection;
+  Vector3 parentPostion;
+
+//외부에서 접근하기 위한 싱글톤 구조
+  public static CreateChildNode Instance = null;
+  private void Awake()
+  {
+    if (Instance == null)
+>>>>>>> 06694689b5e8bdb555aeac115aaca2c5388343de
     {
         if (Instance == null)
         {
