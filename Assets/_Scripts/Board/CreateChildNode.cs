@@ -24,11 +24,9 @@ public class CreateChildNode : MonoBehaviour
   private GameObject Line;
   //부딪쳤을 때 부딪친 노드를 바라보는 방향 벡터
   Vector3 startDirection;
-
   Vector3 parentPostion;
 
-
-   //외부에서 접근하기 위한 싱글톤 구조
+//외부에서 접근하기 위한 싱글톤 구조
   public static CreateChildNode Instance = null;
   private void Awake()
   {

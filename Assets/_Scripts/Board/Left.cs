@@ -14,10 +14,8 @@ public class Left : MonoBehaviour {
 
 		if (gazedAt&&(Camera.main.transform.position != Vector3.zero)) {
 			ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
-			//			Camera.main.transform.eulerAngles = Camera.main.transform.eulerAngles+new Vector3 (0f, 1f, 0);
-			//			Debug.Log (Camera.main.transform.eulerAngles);
-			//Camera.main.transform.Rotate (new Vector3 (0f, 1f, 0f));
 		}
+
 	}
 
 	public void PointerEnter()
