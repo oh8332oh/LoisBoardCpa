@@ -132,7 +132,7 @@ public class CreateChildNode : MonoBehaviour
 
 
 
-        SearchCollider.Instance.currentManager = transform.parent.parent.GetComponent<ChildListManager>();
+        SearchCollider.Instance.currentManager = transform.root.GetComponent<ChildListManager>();
 
         //+버튼을 눌러서 충돌체를 움직인다.
 
