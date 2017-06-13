@@ -121,6 +121,18 @@ public class SearchCollider : MonoBehaviour
         StartCoroutine(checkCreation());
     }
 
+	public void SetPositionL(Vector3 nodeDirection)
+	{
+		//충돌체가 다음 검색 위치에 도달한다.
+		print(nodeDirection);
+		transform.position = nodeDirection;
+		transform.RotateAround(Vector3.zero, Vector3.up, 30);
+
+		//충돌을 빠쟈나오고나서
+		//코루틴이 실행되게 한다.
+		StartCoroutine(checkCreation());
+	}
+
     void rotateBox()
     {
         //위아래로 진동하면서 생성해야 한다.
@@ -242,7 +254,7 @@ public class SearchCollider : MonoBehaviour
 
     public void linedraw(GameObject mother, Vector3 start, Vector3 End)
     { 
-		Color lineC = new Color (1f, 0.7f, 1f, 0.7f);
+		Color lineC = new Color (0.5f, 0.6f, 0.7f, 0.7f);
         Line = new GameObject("Line");
         Line.transform.parent = mother.transform;
         Line.AddComponent<LineRenderer>();
@@ -252,8 +264,8 @@ public class SearchCollider : MonoBehaviour
         Line.GetComponent<LineRenderer>().SetPosition(1, End);
 		Line.GetComponent<LineRenderer>().material = new Material (Shader.Find("Particles/Additive"));
 		Line.GetComponent<LineRenderer> ().SetColors (lineC, lineC);
-		Line.GetComponent<LineRenderer> ().materials[1] = linema;
-		Line.GetComponent<LineRenderer> ().materials[0] = linema;
+		//Line.GetComponent<LineRenderer> ().materials[1] = linema;
+		//Line.GetComponent<LineRenderer> ().materials[0] = linema;
     }
 
 
