@@ -38,7 +38,7 @@ public class SearchCollider : MonoBehaviour
 
     private GameObject Line;
     private GameObject CNode;
-    public Material linema;
+	public Material linema;
     public GameObject Nd;
 
     //라인렌더를 위한 좌표 저장값
@@ -241,7 +241,8 @@ public class SearchCollider : MonoBehaviour
 
 
     public void linedraw(GameObject mother, Vector3 start, Vector3 End)
-    {
+    { 
+		Color lineC = new Color (1f, 0.7f, 1f, 0.7f);
         Line = new GameObject("Line");
         Line.transform.parent = mother.transform;
         Line.AddComponent<LineRenderer>();
@@ -249,7 +250,10 @@ public class SearchCollider : MonoBehaviour
         Line.GetComponent<LineRenderer>().startWidth = 0.1f;
         Line.GetComponent<LineRenderer>().SetPosition(0, start);
         Line.GetComponent<LineRenderer>().SetPosition(1, End);
-        Line.GetComponent<LineRenderer>().material = linema;
+		Line.GetComponent<LineRenderer>().material = new Material (Shader.Find("Particles/Additive"));
+		Line.GetComponent<LineRenderer> ().SetColors (lineC, lineC);
+		Line.GetComponent<LineRenderer> ().materials[1] = linema;
+		Line.GetComponent<LineRenderer> ().materials[0] = linema;
     }
 
 
