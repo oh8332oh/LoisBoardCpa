@@ -1,7 +1,5 @@
 [Ll]ibrary/
 [Oo]bj/
-
-GoogleVR/
 Plugins/
 Builds/
 
@@ -14,5 +12,4 @@ Builds/
 /*.pidb
 /*.booproj
 Temp/
-/
 *.apk
