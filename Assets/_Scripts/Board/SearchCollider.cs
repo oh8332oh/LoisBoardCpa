@@ -156,10 +156,10 @@ public class SearchCollider : MonoBehaviour
 
       
         if(creationValue == 0){
-
-        transform.Translate( nodeBetween * Vector3.up);
-        }else{
           transform.Translate(-1 * nodeBetween * Vector3.up);
+
+        }else{
+        transform.Translate( nodeBetween * Vector3.up);
         }
 
 
