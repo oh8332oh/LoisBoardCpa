@@ -121,17 +121,6 @@ public class SearchCollider : MonoBehaviour
         StartCoroutine(checkCreation());
     }
 
-	public void SetPositionL(Vector3 nodeDirection)
-	{
-		//충돌체가 다음 검색 위치에 도달한다.
-		print(nodeDirection);
-		transform.position = nodeDirection;
-		transform.RotateAround(Vector3.zero, Vector3.up, 30);
-
-		//충돌을 빠쟈나오고나서
-		//코루틴이 실행되게 한다.
-		StartCoroutine(checkCreation());
-	}
 
     void rotateBox()
     {
@@ -241,8 +230,8 @@ public class SearchCollider : MonoBehaviour
         //+ 버튼 누르면 + 버튼 누른 곳에서 좌표가 넘어와서
         //여기서 받고
         //여기서 값 받고 바로 그린다.
+		Vector3 endPosition = node.transform.FindChild ("forParent").gameObject.transform.position;
 
-        Vector3 endPosition = node.transform.FindChild("forParent").gameObject.transform.position;
 
         linedraw(node, lineStartPosition, endPosition);
 
