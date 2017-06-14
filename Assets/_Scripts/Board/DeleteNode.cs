@@ -110,7 +110,7 @@ public class DeleteNode : MonoBehaviour
         Destroy(gameObject.transform.parent.parent);
       }
     }
-
+		Destroy (gameObject.transform.root.gameObject);
 
 
 		

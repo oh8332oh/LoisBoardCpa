@@ -72,7 +72,7 @@ public class CreateChildNode : MonoBehaviour
 
     public void PointEnter()
     {
-        // gazedAt = true;
+        gazedAt = true;
     }
 
     public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.

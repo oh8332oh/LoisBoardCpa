@@ -45,12 +45,9 @@ public class CreateChildNodeL : MonoBehaviour
 		tempLoc = transform.position;
 		tempRot = transform.rotation;
 		nodecount = 0;
-
-
+		Timer = 0f;
 		startDirection = transform.parent.position;
-
 		parentPostion = transform.parent.position;
-
 	}
 
 	// Update is called once per frame
@@ -68,11 +65,13 @@ public class CreateChildNodeL : MonoBehaviour
 			ExecuteEvents.Execute(gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerDownHandler);
 			nodecount++;
 		}
+
+
 	}
 
 	public void PointEnter()
 	{
-		// gazedAt = true;
+		gazedAt = true;
 	}
 
 	public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
