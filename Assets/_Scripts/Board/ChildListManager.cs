@@ -28,6 +28,7 @@ public class ChildListManager : MonoBehaviour
   {
     
     GameObject node = Instantiate(nodePrefab);
+
     // node.SetActive(false);
     // node.transform.position = 
 
@@ -41,17 +42,12 @@ public class ChildListManager : MonoBehaviour
   {
     if (childList.Count == 0)
     {
+
       // ListAdd(node);
       // ListAdd();
+
     }
   }
-
-  public void CreateList(string name)
-  {
-    // List<GameObject> name = new List<GameObject>();
-  }
-
-
 
 
 

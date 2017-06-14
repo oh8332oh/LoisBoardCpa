@@ -8,16 +8,12 @@ using UnityEngine;
 //스태틱으로 메모리에 올린다.
 public class SearchCollider : MonoBehaviour
 {
-
-
     float currentTime;
     bool searchSwitch = false;
     //충돌여부에 따라서 노드를 만들지 안말들지 정하는 변수
     public bool createSwitch = false;
-
     //만들 노드프리펩을 넣는다
     public GameObject nodePrefab;
-
     int rotnum;
 
     public float createTime = 1f;
