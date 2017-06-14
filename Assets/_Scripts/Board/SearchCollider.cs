@@ -38,7 +38,7 @@ public class SearchCollider : MonoBehaviour
 
     private GameObject Line;
     private GameObject CNode;
-	public Material linema;
+    public Material linema;
     public GameObject Nd;
 
     //라인렌더를 위한 좌표 저장값
@@ -84,6 +84,7 @@ public class SearchCollider : MonoBehaviour
     {
 
         print(createSwitch);
+
         //currentPostion = transform.position;
         //print("addd" +transform.position);
         //currentTime+=Time.deltaTime;
@@ -109,18 +110,41 @@ public class SearchCollider : MonoBehaviour
     //먼저1사분면에서의 행동만 만든다.
     //으론쪽 30도 돌아간 지점에서 위로 30도씩 돌리면 왠만한거 해결가능
 
-    public void SetPosition(Vector3 nodeDirection)
+    public void SetPosition(Vector3 nodeDirection, Vector3 currentPostion)
     {
         //충돌체가 다음 검색 위치에 도달한다.
         print(nodeDirection);
         transform.position = nodeDirection;
-        transform.RotateAround(Vector3.zero, Vector3.up, 30);
+
+        if (currentPostion.x > 0)
+        {
+            transform.RotateAround(Vector3.zero, Vector3.up, 30);
+
+        }
+        else
+        {
+            transform.RotateAround(Vector3.zero, Vector3.up, -30);
+        }
+
+
+
 
         //충돌을 빠쟈나오고나서
         //코루틴이 실행되게 한다.
         StartCoroutine(checkCreation());
     }
 
+    // public void SetPositionL(Vector3 nodeDirection)
+    // {
+    // 	//충돌체가 다음 검색 위치에 도달한다.
+    // 	print(nodeDirection);
+    // 	transform.position = nodeDirection;
+    // 	transform.RotateAround(Vector3.zero, Vector3.up, 30);
+
+    // 	//충돌을 빠쟈나오고나서
+    // 	//코루틴이 실행되게 한다.
+    // 	StartCoroutine(checkCreation());
+    // }
 
     void rotateBox()
     {
@@ -129,26 +153,18 @@ public class SearchCollider : MonoBehaviour
         //돌리는 축이 한번 돌아가고나서부터 시작
         //노드에 저장되는 리스트에 접근해서
         //노드에 있는 리스트 만큼?
-        // int test = 1;
 
-        // if (cross)
-        // {
-        //     test = -1;
-        //     cross = false;
-        // }
-        // else
-        // {
-        //     test = 1;
-        //     cross = true;
-        // }
-        int creationValue =  currentManager.childList.Count%2;
+        int creationValue = currentManager.childList.Count % 2;
 
-      
-        if(creationValue == 0){
-          transform.Translate(-1 * nodeBetween * Vector3.up);
 
-        }else{
-        transform.Translate( nodeBetween * Vector3.up);
+        if (creationValue == 0)
+        {
+            transform.Translate(-1 * nodeBetween * Vector3.up);
+
+        }
+        else
+        {
+            transform.Translate(nodeBetween * Vector3.up);
         }
 
 
@@ -224,14 +240,13 @@ public class SearchCollider : MonoBehaviour
 
         node.transform.LookAt(Camera.main.transform.position);
         node.transform.Rotate(Vector3.up, 180f);
-        // Nd = node;
 
         //박스를 만들고 나서 선을 추가 해야 한다.
         //+ 버튼 누르면 + 버튼 누른 곳에서 좌표가 넘어와서
         //여기서 받고
         //여기서 값 받고 바로 그린다.
-		Vector3 endPosition = node.transform.FindChild ("forParent").gameObject.transform.position;
 
+        Vector3 endPosition = node.transform.FindChild("forParent").gameObject.transform.position;
 
         linedraw(node, lineStartPosition, endPosition);
 
@@ -242,19 +257,19 @@ public class SearchCollider : MonoBehaviour
 
 
     public void linedraw(GameObject mother, Vector3 start, Vector3 End)
-    { 
-		Color lineC = new Color (0.5f, 0.6f, 0.7f, 0.7f);
+    {
+        Color lineC = new Color(0.5f, 0.6f, 0.7f, 0.7f);
         Line = new GameObject("Line");
         Line.transform.parent = mother.transform;
         Line.AddComponent<LineRenderer>();
-        Line.GetComponent<LineRenderer>().endWidth = 0.1f;
-        Line.GetComponent<LineRenderer>().startWidth = 0.1f;
+        Line.GetComponent<LineRenderer>().endWidth = 0.02f;
+        Line.GetComponent<LineRenderer>().startWidth = 0.02f;
         Line.GetComponent<LineRenderer>().SetPosition(0, start);
         Line.GetComponent<LineRenderer>().SetPosition(1, End);
-		Line.GetComponent<LineRenderer>().material = new Material (Shader.Find("Particles/Additive"));
-		Line.GetComponent<LineRenderer> ().SetColors (lineC, lineC);
-		//Line.GetComponent<LineRenderer> ().materials[1] = linema;
-		//Line.GetComponent<LineRenderer> ().materials[0] = linema;
+        Line.GetComponent<LineRenderer>().material = new Material(Shader.Find("Particles/Additive"));
+        Line.GetComponent<LineRenderer>().SetColors(lineC, lineC);
+        //Line.GetComponent<LineRenderer> ().materials[1] = linema;
+        //Line.GetComponent<LineRenderer> ().materials[0] = linema;
     }
 
 

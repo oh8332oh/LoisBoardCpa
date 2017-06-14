@@ -136,7 +136,8 @@ public class CreateChildNode : MonoBehaviour
 
         //+버튼을 눌러서 충돌체를 움직인다.
 
-        SearchCollider.Instance.SetPosition(parentPostion);
+        Vector3 currentPosition = transform.position;
+        SearchCollider.Instance.SetPosition(parentPostion, currentPosition);
         
 
         //좌표값을 넘겨 준다. 

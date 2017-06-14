@@ -119,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1487141455872770
 GameObject:
   m_ObjectHideFlags: 1
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 64242874702788540}
   - component: {fileID: 23280038147095386}
   - component: {fileID: 114002400118803448}
-  - component: {fileID: 114529196120503082}
+  - component: {fileID: 114244248528800762}
   m_Layer: 0
   m_Name: Left Plus
   m_TagString: Untagged
@@ -257,8 +257,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191269693046196}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.07}
-  m_LocalScale: {x: 250, y: 200, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.069999695}
+  m_LocalScale: {x: 720, y: 200, z: 1}
   m_Children: []
   m_Father: {fileID: 224758129726980416}
   m_RootOrder: 1
@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 1133724257610022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.7, y: 0, z: 0}
-  m_LocalScale: {x: 0.57633805, y: 0.89798355, z: 1}
+  m_LocalScale: {x: 0.57633805, y: 0.94, z: 1}
   m_Children: []
   m_Father: {fileID: 4026865785105312}
   m_RootOrder: 0
@@ -336,7 +336,7 @@ Transform:
   m_GameObject: {fileID: 1844929328071336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.7, y: 0, z: 0}
-  m_LocalScale: {x: 0.57633996, y: 0.89798, z: 1}
+  m_LocalScale: {x: 0.57633996, y: 0.94, z: 1}
   m_Children: []
   m_Father: {fileID: 4026865785105312}
   m_RootOrder: 3
@@ -766,7 +766,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 114529196120503082}
+        - m_Target: {fileID: 0}
           m_MethodName: PointEnter
           m_Mode: 1
           m_Arguments:
@@ -783,7 +783,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114529196120503082}
+        - m_Target: {fileID: 0}
           m_MethodName: PointerExit
           m_Mode: 1
           m_Arguments:
@@ -800,7 +800,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114529196120503082}
+        - m_Target: {fileID: 0}
           m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
@@ -1028,7 +1028,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodePrefab: {fileID: 1251718320637418, guid: a8625d8e36ab2ec46a9ef2d5f38738df, type: 2}
-  childList: []
+  childList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114228401813538006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1109,7 +1112,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &114529196120503082
+--- !u!114 &114244248528800762
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
