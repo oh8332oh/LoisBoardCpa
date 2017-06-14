@@ -9,20 +9,14 @@ public class ChildListManager : MonoBehaviour
 
   public List<GameObject> childList;
 
-  /// <summary>
-  /// Start is called on the frame when a script is enabled just before
-  /// any of the Update methods is called the first time.
-  /// </summary>
+
   void Start()
   {
     childList  = new List<GameObject>(); 
   }
-	/*
-	void update(){
-		for (int i = 0; i < childList.Count; i++) {
-			childList [i].transform.LookAt (Camera.main.transform.position);
-		}
-	}*/
+
+  
+
   //리스트에 노드를 추가시킨다. 
   //오버라이드를 사용
   public void ListAdd(GameObject node)
@@ -39,7 +33,6 @@ public class ChildListManager : MonoBehaviour
 
     childList.Add(node);
 
-    print(childList);
   }
 
   //+버튼 가지고 있는 노드에 자손이 있는지 확인한다.
@@ -61,16 +54,6 @@ public class ChildListManager : MonoBehaviour
 
 
 
-  //싱글톤 구조
-  // public static ChildList Instance = null;
-  // private void Awake()
-  // {
-  //   
-  //   if (Instance == null)
-  //   {
-  //     Instance = this;
-  //   }
-  // }
 
 }
 
