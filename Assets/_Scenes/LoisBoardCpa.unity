@@ -190,22 +190,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &112184130 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1545952057607752, guid: 9b91b53c0297e44409a83df39ab6616c,
-    type: 2}
-  m_PrefabInternal: {fileID: 2010077398}
---- !u!114 &112184138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 112184130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b84c9c7a7853411cb4fe93b8d53fbab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &226420545
 Prefab:
   m_ObjectHideFlags: 0
@@ -873,22 +857,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 23932516079199236, guid: 9b91b53c0297e44409a83df39ab6616c,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f93c80dae919d45fc980efac8ef7d648, type: 2}
-    - target: {fileID: 23280038147095386, guid: 9b91b53c0297e44409a83df39ab6616c,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b6a2bbcb6e0bc4ed19e93cc97810c6a8, type: 2}
-    - target: {fileID: 114244248528800762, guid: 9b91b53c0297e44409a83df39ab6616c,
-        type: 2}
-      propertyPath: Node
-      value: 
-      objectReference: {fileID: 1528320569990538, guid: 9d19ab16c7dc24f0995b9e8571c64d1e,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b91b53c0297e44409a83df39ab6616c, type: 2}
   m_IsPrefabParent: 0

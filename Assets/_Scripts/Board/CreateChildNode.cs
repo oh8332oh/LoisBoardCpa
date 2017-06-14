@@ -121,9 +121,21 @@ public class CreateChildNode : MonoBehaviour
         //리스트에 담을 준비를한다.
 
 
-         GameObject tempC;
+        GameObject tempC;
 
-        tempC = transform.root.gameObject.transform.FindChild("forChild").gameObject;
+        string buttonName;
+
+        if(transform.position.x > 0)
+        {
+            buttonName = "forChild";
+        }
+        else
+        {
+            buttonName = "forParent";
+        }
+
+
+        tempC = transform.root.gameObject.transform.FindChild(buttonName).gameObject;
         Vector3 StartP = tempC.transform.position;
 
         SearchCollider.Instance.lineStartPosition = StartP;
@@ -138,13 +150,13 @@ public class CreateChildNode : MonoBehaviour
 
         Vector3 currentPosition = transform.position;
         SearchCollider.Instance.SetPosition(parentPostion, currentPosition);
-        
+
 
         //좌표값을 넘겨 준다. 
         //여기에서 좌표값을 잡는다.
 
 
-       
+
 
         // Vector3 EndP;
         // GameObject temp;
@@ -184,7 +196,7 @@ public class CreateChildNode : MonoBehaviour
 
     }
 
-    
+
     public Transform setTreeStructure()
     {
         Transform parent = gameObject.transform.parent.parent;
