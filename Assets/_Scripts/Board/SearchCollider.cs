@@ -114,12 +114,14 @@ public class SearchCollider : MonoBehaviour
 
         if (currentPostion.x > 0)
         {
-            transform.RotateAround(Vector3.zero, Vector3.up, 30);
-
+            
+			transform.RotateAround(Vector3.zero, Vector3.up, 30);
         }
         else
         {
-            transform.RotateAround(Vector3.zero, Vector3.up, -30);
+
+			transform.RotateAround(Vector3.zero, Vector3.up, -30);
+
         }
 
 
@@ -279,7 +281,8 @@ public class SearchCollider : MonoBehaviour
         Line.GetComponent<LineRenderer>().SetPosition(0, start);
         Line.GetComponent<LineRenderer>().SetPosition(1, End);
         Line.GetComponent<LineRenderer>().material = new Material(Shader.Find("Particles/Additive"));
-        Line.GetComponent<LineRenderer>().SetColors(lineC, lineC);
+		Line.GetComponent<LineRenderer> ().startColor = lineC;
+		Line.GetComponent<LineRenderer> ().endColor = lineC;
         //Line.GetComponent<LineRenderer> ().materials[1] = linema;
         //Line.GetComponent<LineRenderer> ().materials[0] = linema;
     }

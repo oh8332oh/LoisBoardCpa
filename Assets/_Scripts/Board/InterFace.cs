@@ -46,7 +46,7 @@ public class InterFace : MonoBehaviour {
 	{   
 		gazedAt = true;
 		iTween.ScaleTo(gameObject, iTween.Hash("x", 0.0048, "y", 0.006, "easeType", "easeOutBack"));
-
+		interfacePre.SetActive (true);
         audioNode.Play();
 
 	}	
@@ -64,6 +64,6 @@ public class InterFace : MonoBehaviour {
 
 	public void PointerDown()
 	{
-		interfacePre.SetActive (true);
+		
 	}
 }

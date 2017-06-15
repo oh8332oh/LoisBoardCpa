@@ -137,7 +137,8 @@ public class CreateChildNode : MonoBehaviour
 
         tempC = transform.root.gameObject.transform.FindChild(buttonName).gameObject;
         Vector3 StartP = tempC.transform.position;
-
+		Vector3 tem = gameObject.transform.root.transform.right * 0.2f;
+		StartP = StartP - tem;
         SearchCollider.Instance.lineStartPosition = StartP;
 
 
