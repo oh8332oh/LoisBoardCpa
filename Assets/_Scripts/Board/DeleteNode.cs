@@ -77,6 +77,8 @@ public class DeleteNode : MonoBehaviour
   {
     onetime = true;
 
+    SearchCollider.Instance.GetComponent<Transform>().position = transform.root.transform.position;
+
 
 		//삭제하는법
 		//먼저 마이너스버튼에 달려 있는 노드를 탐색한다
@@ -101,18 +103,20 @@ public class DeleteNode : MonoBehaviour
         ChildListManager innerManager = currentManager.childList[i].transform.GetComponent<ChildListManager>();
         for(int j = 0; j<innerManager.childList.Count ; j ++)
         {
-          innerManager.childList.RemoveAt(j);
           Destroy(innerManager.childList[j]);
+          innerManager.childList.RemoveAt(j);
+          print(j);
         }
         
 
-        currentManager.childList.RemoveAt(i);
         Destroy(currentManager.childList[i]);
+        currentManager.childList.RemoveAt(i);
+        print(i);
         
         Destroy(gameObject.transform.parent.parent);
       }
     }
-		Destroy (gameObject.transform.root.gameObject);
+		// Destroy (gameObject.transform.root.gameObject);
 
 
 		
