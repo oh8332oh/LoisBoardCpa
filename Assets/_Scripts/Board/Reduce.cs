@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Reduce : MonoBehaviour {
+
+    AudioSource audioReduce;
+
+
 	private bool gazedAt;      
 	private float Timer;
 	private float gazeTime = 1.0f;
@@ -10,6 +14,8 @@ public class Reduce : MonoBehaviour {
 	private Vector3 deltamov;
 	void Start () {
 		Timer = 0f;
+		audioReduce = GetComponent<AudioSource>();
+
 	}
 	void Update () {
 		if (gazedAt) {
@@ -30,6 +36,8 @@ public class Reduce : MonoBehaviour {
 	public void PointerEnter()
 	{   
 		gazedAt = true;
+		iTween.ScaleTo(gameObject, iTween.Hash("x", 0.13, "y", 0.65, "easeType", "easeOutBack"));
+        audioReduce.Play();
 	}	
 
 	public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
@@ -38,5 +46,7 @@ public class Reduce : MonoBehaviour {
 	
 		onetime = false;
 		Timer = 0f;
+		iTween.ScaleTo(gameObject, iTween.Hash("x", 0.1, "y", 0.5, "easeType", "easeOutBack"));
+
 	}
 }
