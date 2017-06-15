@@ -79,7 +79,7 @@ public class SearchCollider : MonoBehaviour
     void Update()
     {
 
-        print(createSwitch);
+        // print(createSwitch);
 
         //currentPostion = transform.position;
         //print("addd" +transform.position);
