@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 64556210855735440}
   - component: {fileID: 23257853997921164}
   - component: {fileID: 114306435643989612}
-  - component: {fileID: 114252578335026090}
+  - component: {fileID: 114444672285266790}
   m_Layer: 0
-  m_Name: LeftMinus
+  m_Name: Right Plus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 64065680776616514}
   - component: {fileID: 23106101890995602}
   - component: {fileID: 114949363971909492}
-  - component: {fileID: 114786986504521380}
+  - component: {fileID: 114952052271038774}
   m_Layer: 0
-  m_Name: RightPlus
+  m_Name: Minus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -911,17 +911,6 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
---- !u!114 &114252578335026090
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1022914292567590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67f030186c9774b73aa0f172f1be144a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114306435643989612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -949,7 +938,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 114252578335026090}
+        - m_Target: {fileID: 114444672285266790}
           m_MethodName: PointEnter
           m_Mode: 1
           m_Arguments:
@@ -966,7 +955,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114252578335026090}
+        - m_Target: {fileID: 114444672285266790}
           m_MethodName: PointerExit
           m_Mode: 1
           m_Arguments:
@@ -983,7 +972,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114252578335026090}
+        - m_Target: {fileID: 114444672285266790}
           m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
@@ -1024,6 +1013,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114444672285266790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022914292567590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96d66fb5ddf07a47a75a69ef028b2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linema: {fileID: 2100000, guid: ef1fff8ad100cf64086dbc90d10352ad, type: 2}
+  arrowInput1: {x: 0, y: 0, z: 0}
+  arrowInput2: {x: 0, y: 0, z: 0}
+  Node: {fileID: 1528320569990538}
+  CNode: {fileID: 0}
+  lineRenderer: {fileID: 0}
 --- !u!114 &114552705717671724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1126,23 +1132,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114786986504521380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1051101560525308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b96d66fb5ddf07a47a75a69ef028b2ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  linema: {fileID: 0}
-  arrowInput1: {x: 0, y: 0, z: 0}
-  arrowInput2: {x: 0, y: 0, z: 0}
-  Node: {fileID: 1251718320637418, guid: a8625d8e36ab2ec46a9ef2d5f38738df, type: 2}
-  CNode: {fileID: 0}
-  lineRenderer: {fileID: 0}
 --- !u!114 &114848681060813718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1222,9 +1211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5f2b7132b1f43f78f15f69d68b4126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftNodePrefab: {fileID: 1528320569990538}
-  righttNodePrefab: {fileID: 1251718320637418, guid: a8625d8e36ab2ec46a9ef2d5f38738df,
-    type: 2}
+  nodePrefab: {fileID: 1528320569990538}
   childList: []
 --- !u!114 &114949363971909492
 MonoBehaviour:
@@ -1253,7 +1240,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 114786986504521380}
+        - m_Target: {fileID: 114952052271038774}
           m_MethodName: PointEnter
           m_Mode: 1
           m_Arguments:
@@ -1270,7 +1257,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114786986504521380}
+        - m_Target: {fileID: 114614331389344354}
+          m_MethodName: PointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 114952052271038774}
           m_MethodName: PointerExit
           m_Mode: 1
           m_Arguments:
@@ -1287,7 +1285,29 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114786986504521380}
+        - m_Target: {fileID: 114614331389344354}
+          m_MethodName: PointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 114952052271038774}
+          m_MethodName: PointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 114952052271038774}
           m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
@@ -1301,6 +1321,17 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &114952052271038774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1051101560525308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f030186c9774b73aa0f172f1be144a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114980760803256018
 MonoBehaviour:
   m_ObjectHideFlags: 1

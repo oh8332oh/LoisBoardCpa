@@ -216,10 +216,7 @@ public class SearchCollider : MonoBehaviour
         // currentManager 
         // ChildList.Instance.ListAdd();
 
-        //탐색 콜라이더의 위치값을 보내줘서
-        //어떤 프리펩을 소환할지 결정한다.
-        float currentXaxis = transform.position.x;
-        currentManager.ListAdd(currentXaxis);
+        currentManager.ListAdd();
 
         int listLength = currentManager.childList.Count;
         GameObject node = currentManager.childList[listLength - 1];
@@ -245,20 +242,7 @@ public class SearchCollider : MonoBehaviour
         //여기서 받고
         //여기서 값 받고 바로 그린다.
 
-           string buttonName;
-
-        if(transform.position.x > 0)
-        {
-            buttonName = "forParent";
-        }
-        else
-        {
-            buttonName = "forChild";
-        }
-
-
-
-        Vector3 endPosition = node.transform.FindChild(buttonName).gameObject.transform.position;
+        Vector3 endPosition = node.transform.FindChild("forParent").gameObject.transform.position;
 
         linedraw(node, lineStartPosition, endPosition);
 

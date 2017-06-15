@@ -5,55 +5,49 @@ using UnityEngine;
 public class ChildListManager : MonoBehaviour
 {
 
-    public GameObject leftNodePrefab;
-    public GameObject righttNodePrefab;
+  public GameObject nodePrefab;
 
-    public List<GameObject> childList;
+  public List<GameObject> childList;
 
 
-    void Start()
+  void Start()
+  {
+    childList  = new List<GameObject>(); 
+  }
+
+  
+
+  //리스트에 노드를 추가시킨다. 
+  //오버라이드를 사용
+  public void ListAdd(GameObject node)
+  {
+    childList.Add(node);
+  }
+
+  public void ListAdd()
+  {
+    
+    GameObject node = Instantiate(nodePrefab);
+
+    // node.SetActive(false);
+    // node.transform.position = 
+
+    childList.Add(node);
+
+  }
+
+  //+버튼 가지고 있는 노드에 자손이 있는지 확인한다.
+  //자손이
+  public void CheckList(GameObject node)
+  {
+    if (childList.Count == 0)
     {
-        childList = new List<GameObject>();
-    }
 
-
-
-    //리스트에 노드를 추가시킨다. 
-    //오버라이드를 사용
-
-    public void ListAdd(float choiceVal)
-    {
-        GameObject node;
-
-        if (choiceVal > 0)
-        {
-            node = Instantiate(righttNodePrefab);
-        }
-        else
-        {
-            node = Instantiate(leftNodePrefab);
-        }
-
-
-        // node.SetActive(false);
-        // node.transform.position = 
-
-        childList.Add(node);
+      // ListAdd(node);
+      // ListAdd();
 
     }
-
-    //+버튼 가지고 있는 노드에 자손이 있는지 확인한다.
-    //자손이
-    public void CheckList(GameObject node)
-    {
-        if (childList.Count == 0)
-        {
-
-            // ListAdd(node);
-            // ListAdd();
-
-        }
-    }
+  }
 
 
 

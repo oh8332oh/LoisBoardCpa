@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;   
 public class InterFace : MonoBehaviour {
+
+    AudioSource audioNode;
+
 	private GameObject interfacePre;
 	private bool gazedAt;      
 	private bool onetime;
@@ -13,7 +16,11 @@ public class InterFace : MonoBehaviour {
 	private float gazeTime = 0.5f;
 	// Use this for initialization
 	void Start () {
-		tempLoc = gameObject.transform.position;
+
+        audioNode = GetComponent<AudioSource>();
+
+
+        tempLoc = gameObject.transform.position;
 		tempRot = gameObject.transform.rotation;
 		Timer = 0f;
 		interfacePre = gameObject.transform.FindChild ("Interface").gameObject;
@@ -38,19 +45,26 @@ public class InterFace : MonoBehaviour {
 	public void PointerEnter()
 	{   
 		gazedAt = true;
+        iTween.ScaleTo(gameObject, iTween.Hash("x", 0.0048, "y", 0.006, "easeType", "easeOutBack"));
 
-	}	
+        audioNode.Play();
 
-	public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
+
+    }
+
+    public void PointerExit()   // 커서가 오브젝트를 벗어나면 크기를 원상  복구 한다.
 	{
 		
 		gazedAt = false;
 		onetime = false;
 		interfacePre.SetActive (false);
 		Timer = 0f;
-	}
 
-	public void PointerDown()
+        iTween.ScaleTo(gameObject, iTween.Hash("x", 0.004, "y", 0.005, "easeType", "easeOutBack"));
+
+    }
+
+    public void PointerDown()
 	{
 		interfacePre.SetActive (true);
 	}

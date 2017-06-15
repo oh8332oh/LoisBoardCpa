@@ -750,9 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5f2b7132b1f43f78f15f69d68b4126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftNodePrefab: {fileID: 1528320569990538, guid: 9d19ab16c7dc24f0995b9e8571c64d1e,
-    type: 2}
-  righttNodePrefab: {fileID: 1251718320637418}
+  nodePrefab: {fileID: 1251718320637418}
   childList: []
 --- !u!114 &114131613625470318
 MonoBehaviour:

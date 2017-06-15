@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class ExistBoard : MonoBehaviour {
+
+    AudioSource audioHover;
+
 	private Scene exist;
 	public static Scene MindMap;
 	public static int Mindnum = 0;
@@ -17,6 +20,7 @@ public class ExistBoard : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Timer = 0f;
+        audioHover = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -38,16 +42,20 @@ public class ExistBoard : MonoBehaviour {
 	{   
 		gazedAt = true;
 		Debug.Log ("point enter");
-	}	
+        iTween.ScaleTo(gameObject, iTween.Hash("x", 3.6, "y", 2.4, "easeType", "easeOutBack"));
+        audioHover.Play();
+    }
 
-	public void PointerExit()
+    public void PointerExit()
 	{
 		gazedAt = false;
 		onetime = false;
 		Timer = 0f;
 		Debug.Log ("exit");
-	}
-	public void PointerDown()
+        iTween.ScaleTo(gameObject, iTween.Hash("x", 3, "y", 2, "easeType", "easeOutBack"));
+
+    }
+    public void PointerDown()
 	{
 		//MindMap[Mindnum] = SceneManager.CreateScene ("MindMap" + Mindnum);
 		//Mindnum++;

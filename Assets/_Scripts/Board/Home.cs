@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Home : MonoBehaviour {
 
+    AudioSource audioHome;
+
 	//public static Scene MindMap;
 	public static int Mindnum = 0; //의미없음
 	// Use this for initialization
@@ -17,7 +19,7 @@ public class Home : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Timer = 0f;
-
+        audioHome = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -41,7 +43,9 @@ public class Home : MonoBehaviour {
 	{   
 		gazedAt = true;
 		Debug.Log ("point enter");
-	}	
+        iTween.ScaleTo(gameObject, iTween.Hash("x", 0.15, "y", 0.6, "easeType", "easeOutBack"));
+        audioHome.Play();
+    }	
 
 	public void PointerExit()
 	{
@@ -49,7 +53,9 @@ public class Home : MonoBehaviour {
 		onetime = false;
 		Timer = 0f;
 		Debug.Log ("exit");
-	}
+        iTween.ScaleTo(gameObject, iTween.Hash("x", 0.1, "y", 0.4, "easeType", "easeOutBack"));
+
+    }
 
 	public void destroy()
 	{
