@@ -101,10 +101,12 @@ public class DeleteNode : MonoBehaviour
         ChildListManager innerManager = currentManager.childList[i].transform.GetComponent<ChildListManager>();
         for(int j = 0; j<innerManager.childList.Count ; j ++)
         {
+          innerManager.childList.RemoveAt(j);
           Destroy(innerManager.childList[j]);
         }
         
 
+        currentManager.childList.RemoveAt(i);
         Destroy(currentManager.childList[i]);
         
         Destroy(gameObject.transform.parent.parent);
